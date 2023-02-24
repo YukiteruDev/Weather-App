@@ -1,0 +1,8 @@
+@import url(./reset.css);
+
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --secondary-color: rgb(247, 246, 249);
+  --primary-text: rgb(0, 0, 0);
+  --secondary-text: rgb(144, 144, 144);
+}

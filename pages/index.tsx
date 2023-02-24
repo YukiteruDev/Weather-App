@@ -1,13 +1,7 @@
 import Head from "next/head";
-import { Lato } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "700"],
-});
 
 export default function Home() {
   return (

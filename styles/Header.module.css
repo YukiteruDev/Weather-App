@@ -1,5 +1,14 @@
 .header {
-  width: 25%;
-  min-height: 100vh;
   background-color: var(--primary-color);
+  width: 28%;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+.units {
+  display: flex;
+  gap: 1rem;
 }

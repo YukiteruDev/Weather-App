@@ -14,6 +14,12 @@ export default function Header() {
         </div>
       </div>
       <Image src={HeaderIcon} alt="header-icon" className={styles.icon} />
+      <div className={styles.temperature}>
+        <p className={lato.className}>
+          12<i>℃</i>
+        </p>
+        <p className={styles.status}>Rain and snow mixed</p>
+      </div>
     </header>
   );
 }

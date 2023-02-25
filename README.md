@@ -1,1 +1,1 @@
-A weather app.
+A cool weather app.

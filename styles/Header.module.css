@@ -1,10 +1,9 @@
 .header {
   background-color: var(--primary-color);
-  width: 28%;
-  min-height: 100vh;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 .top {
   display: flex;
@@ -12,15 +11,15 @@
   align-items: center;
 }
 .top > p {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .units {
   display: flex;
   gap: 1rem;
 }
 .units > button {
-  height: 2.25rem;
-  width: 2.25rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   border: 0;
   font-weight: 900;
@@ -36,7 +35,7 @@
   width: 4rem;
 }
 .icon {
-  width: 90%;
+  width: 100%;
   height: auto;
   align-self: center;
   /* filter: drop-shadow(0 0 2em rgba(251, 191, 93, 0.6)); */

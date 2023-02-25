@@ -4,3 +4,6 @@
   --primary-text: rgb(0, 0, 0);
   --secondary-text: rgb(144, 144, 144);
 }
+body {
+  margin: 0;
+}

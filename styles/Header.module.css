@@ -7,8 +7,25 @@
 .top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.top > p {
+  font-size: 1.25rem;
 }
 .units {
   display: flex;
   gap: 1rem;
+}
+.units > button {
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  border: 0;
+  font-weight: 900;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+.units > button:first-child {
+  color: var(--primary-color);
+  background-color: var(--primary-text);
 }

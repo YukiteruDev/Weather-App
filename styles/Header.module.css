@@ -39,5 +39,5 @@
   width: 90%;
   height: auto;
   align-self: center;
-  filter: drop-shadow(0 0 2em rgba(251, 191, 93, 0.6));
+  /* filter: drop-shadow(0 0 2em rgba(251, 191, 93, 0.6)); */
 }

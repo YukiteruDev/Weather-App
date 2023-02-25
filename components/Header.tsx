@@ -1,7 +1,7 @@
 import styles from "@/styles/Header.module.css";
 import { lato } from "@/api/fonts";
 import Image from "next/image";
-import HeaderIcon from "@/public/icons/fill/clear-day.svg";
+import HeaderIcon from "@/public/icons/fill/rain.svg";
 
 export default function Header() {
   return (

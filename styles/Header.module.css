@@ -3,6 +3,8 @@
   width: 28%;
   min-height: 100vh;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 .top {
   display: flex;
@@ -28,4 +30,14 @@
 .units > button:first-child {
   color: var(--primary-color);
   background-color: var(--primary-text);
+}
+.units img {
+  height: 4rem;
+  width: 4rem;
+}
+.icon {
+  width: 90%;
+  height: auto;
+  align-self: center;
+  filter: drop-shadow(0 0 2em rgba(251, 191, 93, 0.6));
 }

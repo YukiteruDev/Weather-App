@@ -1,5 +1,7 @@
 import styles from "@/styles/Header.module.css";
 import { lato } from "@/api/fonts";
+import Image from "next/image";
+import HeaderIcon from "@/public/icons/fill/clear-day.svg";
 
 export default function Header() {
   return (
@@ -11,6 +13,7 @@ export default function Header() {
           <button>℉</button>
         </div>
       </div>
+      <Image src={HeaderIcon} alt="header-icon" className={styles.icon} />
     </header>
   );
 }

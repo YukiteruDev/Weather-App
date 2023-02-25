@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 2.5fr;
 }
+@media (max-width: 1000px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}

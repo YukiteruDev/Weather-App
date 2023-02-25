@@ -1,3 +1,8 @@
+@media (max-width: 1000px) {
+  .header {
+    height: calc(100dvh - 3rem);
+  }
+}
 .header {
   background-color: var(--primary-color);
   padding: 1.5rem;
@@ -11,7 +16,7 @@
   align-items: center;
 }
 .top > p {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .units {
   display: flex;

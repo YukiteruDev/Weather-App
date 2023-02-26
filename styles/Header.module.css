@@ -1,14 +1,10 @@
-@media (max-width: 1000px) {
-  .header {
-    height: calc(100dvh - 3rem);
-  }
-}
 .header {
+  height: calc(100dvh - 3rem);
   background-color: var(--primary-color);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
 }
 .top {
   display: flex;
@@ -41,6 +37,7 @@
 }
 .icon {
   width: 100%;
+  max-width: 20rem;
   height: auto;
   align-self: center;
 }
@@ -49,6 +46,7 @@
   flex-direction: column;
   align-items: center;
   font-weight: 300;
+  padding-bottom: 1rem;
 }
 .temperature > p {
   font-size: 7rem;
@@ -89,6 +87,7 @@
 }
 .bottomInfo span {
   font-size: 0.9rem;
+  font-weight: 400;
   color: var(--secondary-text);
 }
 .bottomInfo p {

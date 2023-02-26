@@ -29,7 +29,7 @@ export default function Header() {
             </div>
           </div>
           <div className={styles.bottomInfo}>
-            <Icon icon="material-symbols:visibility-outline" />
+            <Icon icon="ph:wind" />
             <div>
               <span>Wind Speed</span>
               <p>10km/h</p>
@@ -43,7 +43,7 @@ export default function Header() {
             </div>
           </div>
           <div className={styles.bottomInfo}>
-            <Icon icon="material-symbols:visibility-outline" />
+            <Icon icon="carbon:pressure" />
             <div>
               <span>Pressure</span>
               <p>700hPa</p>

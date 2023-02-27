@@ -6,6 +6,11 @@ export default function Panel() {
     <main className={styles.panel}>
       <div className={styles.top}>
         <SearchBar />
+        <div className={styles.theme}>
+          <button>Light</button>
+          <button>Dark</button>
+          <button>System</button>
+        </div>
       </div>
     </main>
   );

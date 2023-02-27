@@ -2,6 +2,7 @@ import styles from "@/styles/Panel.module.css";
 import SearchBar from "./SearchBar";
 import Day from "./widgets/Day";
 import Sunrise from "./widgets/Sunrise";
+import Sunset from "./widgets/Sunset";
 
 export default function Panel() {
   const range = [1, 2, 3, 4, 5, 6, 7];
@@ -30,6 +31,7 @@ export default function Panel() {
         <h2>Weather Details</h2>
         <div className={styles.widgets}>
           <Sunrise />
+          <Sunset />
         </div>
       </section>
     </main>

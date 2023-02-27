@@ -1,6 +1,5 @@
 .widget {
-  height: 10rem;
-  width: 12rem;
+  height: 12rem;
   padding: 1.1rem;
   background-color: var(--primary-color);
   border-radius: 1.1rem;
@@ -17,10 +16,9 @@
 .icon {
   width: 8rem;
   height: 8rem;
-  margin-top: -1.5rem;
 }
 .content p {
-  margin-top: -1rem;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
   color: var(--primary-text);
 }

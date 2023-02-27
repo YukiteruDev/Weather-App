@@ -45,3 +45,12 @@
   justify-content: space-between;
   gap: 0.8rem;
 }
+.detail {
+  margin-top: 3.5rem;
+}
+.detail h2 {
+  font-size: 1.2rem;
+}
+.widgets {
+  margin-top: 1.2rem;
+}

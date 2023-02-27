@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./Day.module.css";
+import styles from "@/styles/Day.module.css";
 import Icon from "@/public/icons/fill/rain.svg";
 
 export default function Day() {

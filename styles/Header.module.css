@@ -1,5 +1,5 @@
 .header {
-  height: calc(100dvh - 3rem);
+  height: 100dvh;
   background-color: var(--primary-color);
   padding: 1.5rem;
   display: flex;

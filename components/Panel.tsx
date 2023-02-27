@@ -7,11 +7,17 @@ export default function Panel() {
       <div className={styles.top}>
         <SearchBar />
         <div className={styles.theme}>
-          <button>Light</button>
-          <button>Dark</button>
-          <button>System</button>
+          <button className={styles.textButton}>Light</button>
+          <button className={styles.textButton}>Dark</button>
+          <button className={styles.textButton}>System</button>
         </div>
       </div>
+      <section className={styles.forecast}>
+        <div className={styles.forecastButtons}>
+          <button className={styles.textButton}>Hourly Forecast</button>
+          <button className={styles.textButton}>Weekly Forecast</button>
+        </div>
+      </section>
     </main>
   );
 }

@@ -39,3 +39,9 @@
 .forecastButtons button:first-of-type {
   color: var(--secondary-text);
 }
+.days {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}

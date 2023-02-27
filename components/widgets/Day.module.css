@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: top ease 1s;
+}
+.container:hover {
+  background-color: #f0faff;
+}
+.container:hover {
+  top: -0.1rem;
+}
+.date {
+  color: var(--primary-text);
+  text-align: center;
+}
+.date span {
+  font-size: 0.75rem;
+  color: var(--secondary-text);
+}
+.weather {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.weather span {
+  font-size: 0.9rem;
+}
+.weather span:last-of-type {
+  color: var(--secondary-text);
+}

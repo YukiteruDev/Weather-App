@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  display: block;
+  height: 2rem;
+  width: 20rem;
+}
+.container > svg {
+  position: absolute;
+  transform: translateY(50%);
+  z-index: 9;
+}
+.container > svg:first-of-type {
+  left: 1rem;
+  color: #a5a5a5;
+  scale: 0.8rem;
+}
+.container > svg:last-of-type {
+  right: 0.6rem;
+  cursor: pointer;
+}
+.input {
+  outline: none;
+  border: none;
+  border-radius: 0.6rem;
+  height: 2rem;
+  width: 100%;
+  padding: 0 2.5rem;
+}
+.input:focus {
+  filter: drop-shadow(0 0 0.15rem #c1c1c1);
+}
+.input::placeholder {
+  color: #a5a5a5;
+}

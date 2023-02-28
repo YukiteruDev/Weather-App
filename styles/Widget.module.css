@@ -22,3 +22,18 @@
   font-size: 1.2rem;
   color: var(--primary-text);
 }
+.temperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.temperature .icon {
+  width: 5rem;
+}
+.temperature p {
+  font-size: 2rem;
+}
+.info {
+  text-align: center;
+  color: var(--secondary-text);
+}

@@ -33,7 +33,8 @@ export default function Panel() {
         <div className={styles.widgets}>
           <Sunrise />
           <Sunset />
-          <Temperature />
+          <Temperature highOrLow="high" />
+          <Temperature highOrLow="low" />
         </div>
       </section>
     </main>

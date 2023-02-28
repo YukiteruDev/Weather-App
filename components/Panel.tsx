@@ -2,8 +2,11 @@ import styles from "@/styles/Panel.module.css";
 import SearchBar from "./SearchBar";
 import Day from "./widgets/Day";
 import Sunrise from "./widgets/Sunrise";
-import Sunset from "./widgets/Sunset";
 import Temperature from "./widgets/Temperature";
+import Precipitation from "./widgets/Precipitation";
+import Humidity from "./widgets/Humidity";
+import UVIndex from "./widgets/UVIndex";
+import Wind from "./widgets/Wind";
 
 export default function Panel() {
   const range = [1, 2, 3, 4, 5, 6, 7];
@@ -31,10 +34,14 @@ export default function Panel() {
       <section className={styles.detail}>
         <h2>Weather Details</h2>
         <div className={styles.widgets}>
-          <Sunrise />
-          <Sunset />
+          <Sunrise isRise={true} />
+          <Sunrise isRise={false} />
           <Temperature highOrLow="high" />
           <Temperature highOrLow="low" />
+          <Precipitation />
+          <Humidity />
+          <UVIndex level={3} />
+          <Wind />
         </div>
       </section>
     </main>

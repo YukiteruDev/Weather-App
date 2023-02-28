@@ -58,7 +58,6 @@
   gap: 1rem;
 }
 .widgets > div {
-  height: 12rem;
   padding: 1.1rem;
   background-color: var(--primary-color);
   border-radius: 1.1rem;

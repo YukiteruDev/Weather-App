@@ -6,7 +6,7 @@ export default function Sunset() {
   return (
     <div className={styles.widget}>
       <h3>Sunset</h3>
-      <div className={styles.content}>
+      <div className={styles.sun}>
         <Image src={SunsetIcon} alt="sunrise" className={styles.icon} />
         <p>6:47 PM</p>
       </div>

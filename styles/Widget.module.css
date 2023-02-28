@@ -8,16 +8,16 @@
   font-size: 0.9rem;
   color: var(--secondary-text);
 }
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .icon {
   width: 8rem;
   height: 8rem;
 }
-.content p {
+.sun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sun p {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   color: var(--primary-text);

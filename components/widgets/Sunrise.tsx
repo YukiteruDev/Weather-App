@@ -6,7 +6,7 @@ export default function Sunrise() {
   return (
     <div className={styles.widget}>
       <h3>Sunrise</h3>
-      <div className={styles.content}>
+      <div className={styles.sun}>
         <Image src={SunriseIcon} alt="sunrise" className={styles.icon} />
         <p>6:47 AM</p>
       </div>

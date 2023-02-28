@@ -9,7 +9,7 @@ export default function Wind() {
       <div className={styles.container}>
         <div className={styles.content}>
           <Image src={Icon} alt="icon" />
-          <p>21km</p>
+          <p>21km/h</p>
         </div>
         <p>Southwest, 260°</p>
       </div>

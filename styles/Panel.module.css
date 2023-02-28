@@ -61,6 +61,7 @@
   padding: 1.1rem;
   background-color: var(--primary-color);
   border-radius: 1.1rem;
+  min-height: 10rem;
 }
 .widgets > div h3 {
   font-size: 0.9rem;

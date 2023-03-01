@@ -33,7 +33,7 @@
 }
 .icon {
   width: 100%;
-  height: clamp(6rem, 2vw, 7rem);
+  height: 60%;
 }
 .weather {
   display: flex;

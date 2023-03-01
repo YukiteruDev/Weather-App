@@ -3,13 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
-  padding-bottom: 1rem;
 }
 .content {
   display: flex;
   align-items: center;
 }
 .content p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 50%, 2rem);
 }

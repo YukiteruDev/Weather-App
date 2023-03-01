@@ -1,12 +1,12 @@
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 100%;
 }
 .content img {
-  height: 5rem;
-  width: 5rem;
+  height: 50%;
+  width: 50%;
 }
 .content p {
   font-size: 1.2rem;

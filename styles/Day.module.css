@@ -6,6 +6,7 @@
   border-radius: 1.1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   cursor: pointer;
   position: relative;
@@ -21,9 +22,18 @@
   color: var(--primary-text);
   text-align: center;
 }
+.date p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
 .date span {
-  font-size: 0.75rem;
+  display: block;
+  margin-top: 0.4rem;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
   color: var(--secondary-text);
+}
+.icon {
+  width: 100%;
+  height: clamp(6rem, 2vw, 7rem);
 }
 .weather {
   display: flex;
@@ -31,7 +41,7 @@
   gap: 0.3rem;
 }
 .weather span {
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 8vw, 1.2rem);
 }
 .weather span:last-of-type {
   color: var(--secondary-text);

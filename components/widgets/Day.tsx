@@ -9,7 +9,7 @@ export default function Day() {
         <p>Today</p>
         <span>Feb 22</span>
       </div>
-      <Image src={Icon} alt="icon" />
+      <Image src={Icon} alt="icon" className={styles.icon} />
       <div className={styles.weather}>
         <span>15°</span>
         <span>7°</span>

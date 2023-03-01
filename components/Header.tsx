@@ -43,10 +43,10 @@ export default function Header() {
             </div>
           </div>
           <div className={styles.bottomInfo}>
-            <Icon icon="carbon:pressure" />
+            <Icon icon="material-symbols:humidity-percentage-outline" />
             <div>
-              <span>Pressure</span>
-              <p>700hPa</p>
+              <span>Humidity</span>
+              <p>43%</p>
             </div>
           </div>
         </div>

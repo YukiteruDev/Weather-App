@@ -4,7 +4,7 @@ import Day from "./widgets/Day";
 import Sunrise from "./widgets/Sunrise";
 import Temperature from "./widgets/Temperature";
 import Precipitation from "./widgets/Precipitation";
-import Humidity from "./widgets/Humidity";
+import PrecipitationSum from "./widgets/PrecipitationSum";
 import UVIndex from "./widgets/UVIndex";
 import Wind from "./widgets/Wind";
 
@@ -39,7 +39,7 @@ export default function Panel() {
           <Temperature highOrLow="high" />
           <Temperature highOrLow="low" />
           <Precipitation />
-          <Humidity />
+          <PrecipitationSum />
           <UVIndex level={3} />
           <Wind />
         </div>

@@ -3,9 +3,16 @@
   min-height: 100vh;
   background-color: var(--secondary-color);
   padding: 1.5rem 1.5rem;
+  display: grid;
+  grid-template-rows: 2rem 1fr;
 }
 .top {
   display: flex;
+  justify-content: space-between;
+}
+.content {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .textButton {

@@ -61,9 +61,13 @@
 .widgets {
   margin-top: 1.2rem;
   display: grid;
-  grid-template-columns: repeat(2, minmax(10rem, 1fr));
   grid-template-columns: repeat(4, minmax(12rem, 1fr));
   gap: 1rem;
+}
+@media only screen and (max-width: 1080px) {
+  .widgets {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .widgets > div {
   padding: 1.1rem;

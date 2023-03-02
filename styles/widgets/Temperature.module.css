@@ -7,7 +7,17 @@
 .content {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+.content img {
+  height: 50%;
+  width: 50%;
 }
 .content p {
-  font-size: clamp(1.2rem, 50%, 2rem);
+  font-size: clamp(1.5rem, 50%, 2rem);
+}
+
+.wind {
+  flex-wrap: wrap;
 }

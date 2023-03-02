@@ -70,11 +70,6 @@
   grid-template-columns: repeat(4, minmax(12rem, 1fr));
   gap: 1rem;
 }
-@media only screen and (max-width: 1000px) {
-  .widgets {
-    grid-template-columns: repeat(2, minmax(9rem, 1fr));
-  }
-}
 .widgets > div {
   padding: 1.1rem;
   background-color: var(--primary-color);
@@ -83,4 +78,12 @@
 .widgets > div h3 {
   font-size: 0.9rem;
   color: var(--secondary-text);
+}
+@media only screen and (max-width: 1000px) {
+  .top {
+    display: none;
+  }
+  .widgets {
+    grid-template-columns: repeat(2, minmax(9rem, 1fr));
+  }
 }

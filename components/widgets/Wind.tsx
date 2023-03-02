@@ -7,7 +7,7 @@ export default function Wind() {
     <div className="widget">
       <h3>Wind Speed</h3>
       <div className={styles.container}>
-        <div className={styles.content}>
+        <div className={`${styles.content} ${styles.wind}`}>
           <Image src={Icon} alt="icon" />
           <p>21km/h</p>
         </div>

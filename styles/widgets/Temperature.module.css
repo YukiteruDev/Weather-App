@@ -19,5 +19,6 @@
 }
 
 .wind {
+  flex: 1;
   flex-wrap: wrap;
 }

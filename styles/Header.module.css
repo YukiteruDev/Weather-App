@@ -11,8 +11,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.top > p {
-  font-size: 1.2rem;
+.top > p,
+.top > h1 {
+  font-size: 1.5rem;
+}
+.top button {
+  border: none;
+  padding: 0;
+  background: none;
 }
 .units {
   display: flex;
@@ -34,6 +40,12 @@
 .units img {
   height: 4rem;
   width: 4rem;
+}
+.settingsButton {
+  display: none;
+}
+.topIcon {
+  font-size: 1.8rem;
 }
 .icon {
   width: 100%;
@@ -93,4 +105,16 @@
 .bottomInfo p {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    justify-content: start;
+  }
+  .units {
+    display: none;
+  }
+  .settingsButton {
+    display: block;
+  }
 }

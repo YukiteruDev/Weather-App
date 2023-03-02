@@ -17,10 +17,10 @@
 }
 .container > button {
   padding: 0;
-  border: none;
   right: 0.6rem;
-  cursor: pointer;
   background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .input {
   outline: none;

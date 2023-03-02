@@ -14,6 +14,7 @@
   border: 1px solid var(--secondary-color);
   border-radius: 0.6rem;
   padding: 0.5rem 0.9rem;
+  cursor: pointer;
 }
 .item:hover {
   box-shadow: 0 0 4px var(--active-color);
@@ -24,4 +25,5 @@
 .activeItem {
   border: 1px solid var(--active-color);
   box-shadow: 0 0 4px var(--active-color);
+  color: var(--active-color);
 }

@@ -3,10 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 .content img {
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: clamp(3rem, 20vw, 6rem);
 }
 .content p {
   font-size: 1.2rem;

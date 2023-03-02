@@ -60,6 +60,10 @@
   max-width: 100vw;
   overflow: hidden;
   overflow-x: scroll;
+  scrollbar-width: none;
+}
+.days::-webkit-scrollbar {
+  display: none;
 }
 .detail h2 {
   font-size: 1.2rem;

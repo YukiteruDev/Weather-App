@@ -4,19 +4,23 @@
   height: 2rem;
   width: 20rem;
 }
-.container > svg {
+.container > svg,
+.container > button {
   position: absolute;
   transform: translateY(50%);
   z-index: 9;
 }
-.container > svg:first-of-type {
+.container > svg {
   left: 1rem;
   color: #a5a5a5;
   scale: 0.8;
 }
-.container > svg:last-of-type {
+.container > button {
+  padding: 0;
+  border: none;
   right: 0.6rem;
   cursor: pointer;
+  background-color: transparent;
 }
 .input {
   outline: none;
@@ -38,7 +42,7 @@
     height: 4rem;
     width: 100%;
   }
-  .container > svg {
+  .container svg {
     transform: none;
     height: 100%;
     width: 1.8rem;

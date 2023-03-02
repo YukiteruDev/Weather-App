@@ -5,6 +5,7 @@
   --secondary-color: rgb(247, 246, 249);
   --primary-text: rgb(0, 0, 0);
   --secondary-text: rgb(144, 144, 144);
+  --active-color: rgb(11, 174, 255);
 }
 *,
 *::before,

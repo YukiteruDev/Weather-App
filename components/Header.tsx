@@ -5,6 +5,8 @@ import Image from "next/image";
 import HeaderIcon from "@/public/icons/fill/rain.svg";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import Appearance from "./settings/Appearance";
+import Scale from "./settings/Scale";
 
 type SettingsProps = {
   hideSettings: Function;
@@ -22,6 +24,8 @@ function Settings({ hideSettings }: SettingsProps) {
         </button>
       </div>
       <SearchBar />
+      <Appearance />
+      <Scale />
     </>
   );
 }

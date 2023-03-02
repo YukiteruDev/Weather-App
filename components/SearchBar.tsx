@@ -7,7 +7,9 @@ export default function SearchBar() {
   return (
     <div className={styles.container}>
       <Icon icon="simple-line-icons:magnifier" />
-      <Icon icon="lucide:locate-fixed" />
+      <button>
+        <Icon icon="lucide:locate-fixed" />
+      </button>
       <input
         value={value}
         onChange={e => setValue(e.target.value)}

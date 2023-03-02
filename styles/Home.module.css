@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 2.5fr;
 }
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1200px) {
   .main {
     display: flex;
     flex-direction: column;

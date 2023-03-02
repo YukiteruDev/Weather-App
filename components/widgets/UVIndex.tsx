@@ -11,6 +11,7 @@ export default function UVIndex({ level }: PropsType) {
       <h3>UV Index</h3>
       <div className={styles.container}>
         <Image src={Icon} alt="icon" className={styles.icon} />
+        <p>No protection needed.</p>
       </div>
     </div>
   );

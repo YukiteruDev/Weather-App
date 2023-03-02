@@ -2,18 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex: 1;
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.8rem;
 }
 .content img {
   height: 100%;
-  width: clamp(6rem, 50%, 7rem);
+  width: clamp(5rem, 50%, 7rem);
 }
 .content p {
   font-size: clamp(1.2rem, 10vw, 1.5rem);
@@ -22,4 +21,5 @@
 .wind {
   flex: 1;
   flex-wrap: wrap;
+  max-height: 60%;
 }

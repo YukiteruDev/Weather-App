@@ -1,5 +1,4 @@
 .container {
-  aspect-ratio: 3/4;
   width: 100%;
   background-color: var(--primary-color);
   padding: 1rem;

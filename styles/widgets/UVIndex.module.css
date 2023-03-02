@@ -1,9 +1,12 @@
 .container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
+}
+.container p {
+  text-align: center;
 }
 .icon {
   height: 6rem;

@@ -1,7 +1,7 @@
 .panel {
   min-height: 100vh;
   background-color: var(--secondary-color);
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -86,11 +86,20 @@
   font-size: 0.9rem;
   color: var(--secondary-text);
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   .top {
     display: none;
   }
   .widgets {
     grid-template-columns: repeat(2, minmax(9rem, 1fr));
+  }
+  .forecast {
+    margin-top: 0;
+  }
+  .forecastButtons button {
+    flex: 1;
+  }
+  .detail {
+    margin-top: 1.5rem;
   }
 }

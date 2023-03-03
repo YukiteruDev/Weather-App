@@ -13,7 +13,7 @@ export default function Panel() {
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
-        <SearchBar />
+        <SearchBar isSettings={false} />
         <div className={styles.theme}>
           <button className={styles.textButton}>Light</button>
           <button className={styles.textButton}>Dark</button>

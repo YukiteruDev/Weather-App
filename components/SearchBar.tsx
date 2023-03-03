@@ -2,10 +2,17 @@ import { useState } from "react";
 import styles from "@/styles/SearchBar.module.css";
 import { Icon } from "@iconify/react";
 
-export default function SearchBar() {
+type SearchBarType = {
+  isSettings: boolean;
+};
+export default function SearchBar({ isSettings }: SearchBarType) {
   const [value, setValue] = useState("");
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        isSettings ? styles.settingsSearch : ""
+      }`}
+    >
       <Icon icon="simple-line-icons:magnifier" />
       <button>
         <Icon icon="lucide:locate-fixed" />

@@ -36,24 +36,23 @@
 .input::placeholder {
   color: #a5a5a5;
 }
-@media only screen and (max-width: 1200px) {
-  .container {
-    margin-top: 2rem;
-    height: 4rem;
-    width: 100%;
-  }
-  .container svg {
-    transform: none;
-    height: 100%;
-    width: 1.8rem;
-  }
-  .input {
-    height: 4rem;
-    padding-left: 3rem;
-    background-color: var(--secondary-color);
-    font-size: 1.2rem;
-  }
-  .input::placeholder {
-    font-size: 1.2rem;
-  }
+
+.settingsSearch {
+  margin-top: 2rem;
+  height: 4rem;
+  width: 100%;
+}
+.settingsSearch svg {
+  transform: none;
+  height: 100%;
+  width: 1.8rem;
+}
+.settingsSearch .input {
+  height: 4rem;
+  padding-left: 3rem;
+  background-color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+.settingsSearch .input::placeholder {
+  font-size: 1.2rem;
 }

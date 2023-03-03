@@ -47,7 +47,7 @@
   gap: 2rem;
 }
 .forecastButtons button {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .forecastButtons button:first-of-type {
   color: var(--secondary-text);
@@ -66,7 +66,7 @@
   display: none;
 }
 .detail h2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .widgets {
   margin-top: 1.2rem;

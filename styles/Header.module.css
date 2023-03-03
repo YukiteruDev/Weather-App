@@ -11,9 +11,8 @@
   justify-content: space-between;
   align-items: center;
 }
-.top > p,
-.top > h1 {
-  font-size: 1.5rem;
+.top > p {
+  font-size: 1.4rem;
 }
 .top button {
   border: none;

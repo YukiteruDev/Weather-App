@@ -5,22 +5,26 @@
   width: 20rem;
 }
 .container > svg,
-.container > button {
+.locate {
   position: absolute;
-  transform: translateY(50%);
   z-index: 9;
+  height: 100%;
 }
 .container > svg {
   left: 1rem;
   color: #a5a5a5;
-  scale: 0.8;
 }
-.container > button {
+.locate {
   padding: 0;
   right: 0.6rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.locate > svg {
+  font-size: 1.2rem;
 }
 .input {
   outline: none;
@@ -42,10 +46,9 @@
   height: 4rem;
   width: 100%;
 }
-.settingsSearch svg {
-  transform: none;
-  height: 100%;
-  width: 1.8rem;
+.settingsSearch svg,
+.locate button {
+  font-size: 1.5rem;
 }
 .settingsSearch .input {
   height: 4rem;

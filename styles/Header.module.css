@@ -37,6 +37,9 @@
   color: var(--primary-color);
   background-color: var(--primary-text);
 }
+.units > button:last-child {
+  background-color: var(--secondary-color);
+}
 .units img {
   height: 4rem;
   width: 4rem;

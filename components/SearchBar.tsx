@@ -14,7 +14,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
       }`}
     >
       <Icon icon="simple-line-icons:magnifier" />
-      <button>
+      <button className={styles.locate}>
         <Icon icon="lucide:locate-fixed" />
       </button>
       <input

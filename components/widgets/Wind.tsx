@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Icon from "public/icons/fill/wind-beaufort-5.svg";
-import styles from "styles/widgets/Temperature.module.css";
+import styles from "styles/Widget.module.css";
 
 export default function Wind() {
   return (
-    <div className="widget">
-      <h3>Wind Speed</h3>
-      <div className={styles.container}>
-        <div className={`${styles.content} ${styles.wind}`}>
-          <Image src={Icon} alt="icon" />
-          <p>21km/h</p>
+    <div className={styles.widget}>
+      <h3 className={styles.title}>Wind Speed</h3>
+      <div className={`${styles.flexCenter} ${styles.flexColumn}`}>
+        <div className={styles.flexCenter}>
+          <Image src={Icon} alt="icon" className={styles.temperatureImage} />
+          <p className={styles.infoText}>21km/h</p>
         </div>
-        <p>Southwest, 260°</p>
+        <p className={`${styles.bottomText} ${styles.windDirection}`}>
+          Southwest, 260°
+        </p>
       </div>
     </div>
   );

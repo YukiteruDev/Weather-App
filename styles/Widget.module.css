@@ -1,0 +1,49 @@
+.widget {
+  padding: 1.1rem;
+  background-color: var(--primary-color);
+  border-radius: 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
+.flexCenter {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.noWrap {
+  flex-wrap: unset;
+}
+.flexColumn {
+  flex-direction: column;
+}
+.justifyBetween {
+  justify-content: space-between;
+}
+.infoText {
+  font-size: clamp(1.2rem, 10vw, 1.5rem);
+}
+.bottomText {
+  font-size: 1rem;
+  text-align: center;
+}
+.uvImage {
+  width: 6rem;
+  height: 6rem;
+}
+.sunriseImage {
+  height: 100%;
+  width: clamp(3rem, 20vw, 6rem);
+}
+.temperatureImage {
+  height: 80%;
+  width: clamp(5rem, 50%, 7rem);
+}
+.windDirection {
+  margin-top: 0.5rem;
+}

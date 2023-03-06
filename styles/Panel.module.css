@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
 }
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1000px) {
   .top {
     flex-direction: column;
   }
@@ -28,15 +28,15 @@
   padding: 0;
   cursor: pointer;
 }
-.theme {
+.scale {
   display: flex;
   gap: 1rem;
 }
-.theme button {
+.scale button {
   font-size: 1rem;
   color: var(--secondary-text);
 }
-.theme button:last-of-type {
+.scale button:last-of-type {
   color: var(--primary-text);
 }
 .forecast {

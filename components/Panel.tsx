@@ -14,10 +14,9 @@ export default function Panel() {
     <main className={styles.panel}>
       <div className={styles.top}>
         <SearchBar isSettings={false} />
-        <div className={styles.theme}>
-          <button className={styles.textButton}>Light</button>
-          <button className={styles.textButton}>Dark</button>
-          <button className={styles.textButton}>System</button>
+        <div className={styles.scale}>
+          <button className={styles.textButton}>Celsius</button>
+          <button className={styles.textButton}>Fahrenheit</button>
         </div>
       </div>
       <section className={styles.content}>

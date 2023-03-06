@@ -21,7 +21,7 @@ export default function Settings() {
         </Link>
       </div>
       <SearchBar isSettings={true} />
-      <Appearance />
+      {/* <Appearance /> */}
       <Scale />
     </header>
   );

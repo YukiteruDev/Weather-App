@@ -19,10 +19,10 @@ export default function Header() {
               />
             </button>
           </Link>
-          <div className={styles.units}>
+          {/* <div className={styles.units}>
             <button>℃</button>
             <button>℉</button>
-          </div>
+          </div> */}
         </div>
         <Image src={HeaderIcon} alt="header-icon" className={styles.icon} />
         <div className={styles.temperature}>

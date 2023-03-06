@@ -7,13 +7,13 @@
   --secondary-text: rgb(144, 144, 144);
   --active-color: rgb(11, 174, 255);
 }
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: rgb(0, 0, 0);
     --secondary-color: rgb(18, 18, 18);
     --primary-text: rgb(255, 255, 255);
   }
-}
+} */
 *,
 *::before,
 *::after {

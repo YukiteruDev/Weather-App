@@ -12,6 +12,7 @@
   align-items: center;
 }
 .top > p {
+  color: var(--primary-text);
   font-size: 1.4rem;
 }
 .top button {
@@ -62,6 +63,7 @@
   align-items: center;
   font-weight: 300;
   padding-bottom: 1rem;
+  color: var(--primary-text);
 }
 .temperature > p {
   font-size: 7rem;

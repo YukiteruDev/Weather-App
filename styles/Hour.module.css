@@ -1,0 +1,27 @@
+.container {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.container:hover {
+  background-color: #f0faff;
+}
+.time {
+  color: var(--primary-text);
+  text-align: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+.icon {
+  width: 4rem;
+  height: 100%;
+}
+.weather {
+  color: var(--primary-text);
+  font-size: clamp(0.9rem, 8vw, 1.2rem);
+}

@@ -46,12 +46,12 @@
   display: flex;
   gap: 2rem;
 }
-.forecastButtons button {
-  color: var(--primary-text);
+.forecastButtons > button {
+  color: var(--secondary-text);
   font-size: 1.2rem;
 }
-.forecastButtons button:first-of-type {
-  color: var(--secondary-text);
+.forecastButtons > .activeButton {
+  color: var(--primary-text);
 }
 .days {
   display: flex;
@@ -64,6 +64,17 @@
   scrollbar-width: none;
 }
 .days::-webkit-scrollbar {
+  display: none;
+}
+.hours {
+  display: flex;
+  gap: 0.8rem;
+  max-width: 100vw;
+  margin-top: 1.2rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.hours::-webkit-scrollbar {
   display: none;
 }
 .detail h2 {

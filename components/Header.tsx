@@ -5,11 +5,25 @@ import Image from "next/image";
 import HeaderIcon from "@/public/icons/fill/rain.svg";
 import Link from "next/link";
 import { CurrentWeather } from "@/types/temperature";
+import weatherCode from "@/api/weatherCode.json";
+
+// function getWeatherInfo(code: any) {
+//   const description = weatherCode[code].description;
+//   return { description };
+// }
 
 type HeaderProps = {
   currentWeather: CurrentWeather;
 };
 export default function Header({ currentWeather }: HeaderProps) {
+  const code = currentWeather.weatherCode.toString();
+  let obj = {
+    "0": {
+      description: "Clear Sky",
+      icon: "clear",
+    },
+  };
+  const weatherInfo = obj[code];
   return (
     <header className={styles.header}>
       <>
@@ -30,7 +44,7 @@ export default function Header({ currentWeather }: HeaderProps) {
             {currentWeather.temperature}
             <i>°</i>
           </p>
-          <p className={styles.status}>Rain and snow mixed</p>
+          <p className={styles.status}>{weatherInfo.description}</p>
           <div className={styles.bottom}>
             <div className={styles.bottomInfo}>
               <Icon icon="ph:t-shirt-bold" />

@@ -8,6 +8,7 @@ type HourlyData = {
   relativehumidity_2m: number[];
 };
 type CurrentWeather = {
+  weatherCode: number;
   temperature: number;
   apparentTemperature: number;
   humidity: number;

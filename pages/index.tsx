@@ -2,8 +2,9 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
+import { getHourlyForecast } from "@/api/request";
 
-export default function Home() {
+export default function Home({ hourlyData }: any) {
   return (
     <>
       <Head>
@@ -14,8 +15,13 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <Header />
-        <Panel />
+        <Panel hourlyData={hourlyData.hourly} />
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const hourlyData = await getHourlyForecast();
+  return { props: { hourlyData } };
 }

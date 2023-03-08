@@ -11,12 +11,25 @@ import Wind from "./widgets/Wind";
 import { useState } from "react";
 import { useHorizontalScroll } from "@/api/scroll";
 
-type TabType = "hour" | "day";
-export default function Panel() {
+interface PanelProps {
+  hourlyData: {
+    time: string[];
+    temperature_2m: number[];
+    weathercode: number[];
+  };
+}
+export default function Panel({ hourlyData }: PanelProps) {
   const week = [1, 2, 3, 4, 5, 6, 7];
-  const hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("hour");
   const scrollRef = useHorizontalScroll();
+  function timeData(index: number) {
+    return {
+      time: hourlyData.time[index],
+      temperature: hourlyData.temperature_2m[index],
+      weatherCode: hourlyData.weathercode[index],
+    };
+  }
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
@@ -54,8 +67,8 @@ export default function Panel() {
             </div>
           ) : (
             <div ref={scrollRef} className={styles.hours}>
-              {hour.map(num => {
-                return <Hour key={num} />;
+              {hourlyData.time.map((time, index) => {
+                return <Hour data={timeData(index)} key={time} />;
               })}
             </div>
           )}

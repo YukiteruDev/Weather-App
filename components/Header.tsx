@@ -4,8 +4,12 @@ import { lato } from "@/api/fonts";
 import Image from "next/image";
 import HeaderIcon from "@/public/icons/fill/rain.svg";
 import Link from "next/link";
+import { CurrentWeather } from "@/types/temperature";
 
-export default function Header() {
+type HeaderProps = {
+  currentWeather: CurrentWeather;
+};
+export default function Header({ currentWeather }: HeaderProps) {
   return (
     <header className={styles.header}>
       <>
@@ -19,15 +23,12 @@ export default function Header() {
               />
             </button>
           </Link>
-          {/* <div className={styles.units}>
-            <button>℃</button>
-            <button>℉</button>
-          </div> */}
         </div>
         <Image src={HeaderIcon} alt="header-icon" className={styles.icon} />
         <div className={styles.temperature}>
           <p className={lato.className}>
-            12<i>°</i>
+            {currentWeather.temperature}
+            <i>°</i>
           </p>
           <p className={styles.status}>Rain and snow mixed</p>
           <div className={styles.bottom}>
@@ -35,28 +36,28 @@ export default function Header() {
               <Icon icon="ph:t-shirt-bold" />
               <div>
                 <span>Feel like</span>
-                <p>10°</p>
+                <p>{currentWeather.apparentTemperature}°</p>
               </div>
             </div>
             <div className={styles.bottomInfo}>
               <Icon icon="ph:wind" />
               <div>
                 <span>Wind Speed</span>
-                <p>10km/h</p>
+                <p>{currentWeather.windSpeed}km/h</p>
               </div>
             </div>
             <div className={styles.bottomInfo}>
               <Icon icon="material-symbols:visibility-outline" />
               <div>
                 <span>Visibility</span>
-                <p>22km</p>
+                <p>{currentWeather.visibility / 1000}km</p>
               </div>
             </div>
             <div className={styles.bottomInfo}>
               <Icon icon="material-symbols:humidity-percentage-outline" />
               <div>
                 <span>Humidity</span>
-                <p>43%</p>
+                <p>{currentWeather.humidity}%</p>
               </div>
             </div>
           </div>

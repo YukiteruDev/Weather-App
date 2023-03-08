@@ -10,13 +10,10 @@ import UVIndex from "./widgets/UVIndex";
 import Wind from "./widgets/Wind";
 import { useState } from "react";
 import { useHorizontalScroll } from "@/api/scroll";
+import { HourlyData } from "@/types/temperature";
 
 interface PanelProps {
-  hourlyData: {
-    time: string[];
-    temperature_2m: number[];
-    weathercode: number[];
-  };
+  hourlyData: HourlyData;
 }
 export default function Panel({ hourlyData }: PanelProps) {
   const week = [1, 2, 3, 4, 5, 6, 7];

@@ -11,19 +11,20 @@ type QueryType = {
 
 function getQueryString(queryObject: QueryType) {
   const queryString = new URLSearchParams(queryObject).toString();
-  return queryString.replace("%2C", ",");
+  return queryString.replaceAll("%2C", ",");
 }
 
 async function getHourlyForecast() {
   const queryObject: QueryType = {
     latitude,
     longitude,
-    hourly: "temperature_2m,weathercode",
+    hourly:
+      "temperature_2m,relativehumidity_2m,apparent_temperature,weathercode,visibility,windspeed_10m",
     start_date: "2023-03-08",
-    end_date: "2023-03-09",
+    end_date: "2023-03-08",
   };
   const queryString = getQueryString(queryObject);
-  const requestUrl = `${baseUrl}?${queryString}`;
+  const requestUrl = `${baseUrl}?${queryString}&timezone=Asia%2FTokyo`;
   const res = await fetch(requestUrl, {
     method: "GET",
   });

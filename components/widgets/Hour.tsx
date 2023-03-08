@@ -11,7 +11,7 @@ type HourProps = { data: HourData };
 export default function Hour({ data }: HourProps) {
   return (
     <div className={styles.container}>
-      <p className={styles.time}>{data.time}</p>
+      <p className={styles.time}>{data.time.slice(-5)}</p>
       <Image src={Icon} alt="icon" className={styles.icon} />
       <p className={styles.weather}>{data.temperature}°</p>
     </div>

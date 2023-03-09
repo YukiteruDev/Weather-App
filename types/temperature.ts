@@ -7,6 +7,10 @@ type HourlyData = {
   windspeed_10m: number[];
   relativehumidity_2m: number[];
 };
+type DailyData = {
+  time: string[];
+  weathercode: number[];
+};
 type CurrentWeather = {
   weatherCode: number;
   temperature: number;
@@ -16,4 +20,4 @@ type CurrentWeather = {
   visibility: number;
 };
 
-export type { HourlyData, CurrentWeather };
+export type { HourlyData, DailyData, CurrentWeather };

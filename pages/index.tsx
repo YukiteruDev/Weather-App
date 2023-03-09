@@ -2,14 +2,19 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
-import { getHourlyForecast } from "@/api/request";
-import { CurrentWeather, HourlyData } from "@/types/temperature";
+import { getDailyForecast, getHourlyForecast } from "@/api/request";
+import { CurrentWeather, DailyData, HourlyData } from "@/types/temperature";
 
 interface HomeProps {
   hourlyData: HourlyData;
+  dailyData: DailyData;
   currentWeather: CurrentWeather;
 }
-export default function Home({ hourlyData, currentWeather }: HomeProps) {
+export default function Home({
+  hourlyData,
+  dailyData,
+  currentWeather,
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -20,7 +25,7 @@ export default function Home({ hourlyData, currentWeather }: HomeProps) {
       </Head>
       <div className={styles.main}>
         <Header currentWeather={currentWeather} />
-        <Panel hourlyData={hourlyData} />
+        <Panel hourlyData={hourlyData} dailyData={dailyData} />
       </div>
     </>
   );
@@ -45,6 +50,13 @@ function getCurrentWeather(data: HourlyData) {
 
 export async function getServerSideProps() {
   const hourlyData = await getHourlyForecast();
+  const dailyData = await getDailyForecast();
   const currentWeather = getCurrentWeather(hourlyData.hourly);
-  return { props: { hourlyData: hourlyData.hourly, currentWeather } };
+  return {
+    props: {
+      hourlyData: hourlyData.hourly,
+      dailyData: dailyData.daily,
+      currentWeather,
+    },
+  };
 }

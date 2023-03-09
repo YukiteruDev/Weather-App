@@ -16,14 +16,15 @@ type HeaderProps = {
   currentWeather: CurrentWeather;
 };
 export default function Header({ currentWeather }: HeaderProps) {
-  const code = currentWeather.weatherCode.toString();
+  const code = currentWeather.weatherCode;
+  console.log({ code });
   let obj = {
     "0": {
       description: "Clear Sky",
       icon: "clear",
     },
   };
-  const weatherInfo = obj[code];
+  // const weatherInfo = obj[code];
   return (
     <header className={styles.header}>
       <>
@@ -44,7 +45,7 @@ export default function Header({ currentWeather }: HeaderProps) {
             {currentWeather.temperature}
             <i>°</i>
           </p>
-          <p className={styles.status}>{weatherInfo.description}</p>
+          <p className={styles.status}>{""}</p>
           <div className={styles.bottom}>
             <div className={styles.bottomInfo}>
               <Icon icon="ph:t-shirt-bold" />

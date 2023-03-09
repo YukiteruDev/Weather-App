@@ -35,16 +35,35 @@ function getQueryString(hourly = "", daily = "") {
 }
 
 async function getHourlyForecast() {
-  const queryString = getQueryString(
-    "temperature_2m,relativehumidity_2m,apparent_temperature,weathercode,visibility,windspeed_10m"
-  );
+  const variables = [
+    "temperature_2m",
+    "relativehumidity_2m",
+    "apparent_temperature",
+    "weathercode",
+    "visibility",
+    "windspeed_10m",
+  ];
+  const queryString = getQueryString(variables.join());
   const data = await sendRequest(queryString);
-  console.log(data);
   return data;
 }
 
 async function getDailyForecast() {
-  const queryString = getQueryString("", "weathercode");
+  const variables = [
+    "weathercode",
+    "temperature_2m_max",
+    "temperature_2m_min",
+    "apparent_temperature_max",
+    "apparent_temperature_min",
+    "sunrise",
+    "sunset",
+    "uv_index_max",
+    "precipitation_sum",
+    "precipitation_probability_max",
+    "windspeed_10m_max",
+    "winddirection_10m_dominant",
+  ];
+  const queryString = getQueryString("", variables.join());
   const data = await sendRequest(queryString);
   return data;
 }

@@ -10,6 +10,15 @@ type HourlyData = {
 type DailyData = {
   time: string[];
   weathercode: number[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  apparent_temperature_max: number[];
+  apparent_temperature_min: number[];
+  sunrise: string[];
+  sunset: string[];
+  uv_index_max: number[];
+  windspeed_10m_max: number[];
+  winddirection_10m_dominant: number[];
 };
 type CurrentWeather = {
   weatherCode: number;

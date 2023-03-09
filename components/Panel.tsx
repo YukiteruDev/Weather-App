@@ -20,19 +20,6 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("hour");
   const scrollRef = useHorizontalScroll();
-  function getHourlyData(index: number) {
-    return {
-      time: hourlyData.time[index],
-      temperature: hourlyData.temperature_2m[index],
-      weatherCode: hourlyData.weathercode[index],
-    };
-  }
-  function getDailyData(index: number) {
-    return {
-      time: dailyData.time[index],
-      weatherCode: dailyData.weathercode[index],
-    };
-  }
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
@@ -65,13 +52,13 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           {tab === "day" ? (
             <div className={styles.days}>
               {dailyData.time.map((time, index) => {
-                return <Day data={getDailyData(index)} key={time} />;
+                return <Day data={dailyData} index={index} key={time} />;
               })}
             </div>
           ) : (
             <div ref={scrollRef} className={styles.hours}>
               {hourlyData.time.map((time, index) => {
-                return <Hour data={getHourlyData(index)} key={time} />;
+                return <Hour data={hourlyData} index={index} key={time} />;
               })}
             </div>
           )}

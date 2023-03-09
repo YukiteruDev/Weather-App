@@ -20,7 +20,13 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("hour");
   const scrollRef = useHorizontalScroll();
-  const activeIndex = 0;
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [weekDay, setWeekDay] = useState("Today");
+  function handleDayClick(index: number, weekDay: string) {
+    setActiveIndex(index);
+    setWeekDay(weekDay);
+  }
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
@@ -53,7 +59,14 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           {tab === "day" ? (
             <div className={styles.days}>
               {dailyData.time.map((time, index) => {
-                return <Day data={dailyData} index={index} key={time} />;
+                return (
+                  <Day
+                    data={dailyData}
+                    index={index}
+                    key={time}
+                    callback={(idx, weekDay) => handleDayClick(idx, weekDay)}
+                  />
+                );
               })}
             </div>
           ) : (
@@ -65,7 +78,7 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           )}
         </article>
         <article className={styles.detail}>
-          <h2>Daily Details</h2>
+          <h2>{weekDay}'s Details</h2>
           <div className={styles.widgets}>
             <Sunrise rise={dailyData.sunrise[activeIndex]} />
             <Sunrise set={dailyData.sunset[activeIndex]} />

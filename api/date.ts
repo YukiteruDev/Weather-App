@@ -10,7 +10,7 @@ const weekDays = [
 
 function getDayOfWeek(date: string) {
   const dayOfWeek = new Date(date).getDay();
-  return isNaN(dayOfWeek) ? null : weekDays[dayOfWeek];
+  return isNaN(dayOfWeek) ? "" : weekDays[dayOfWeek];
 }
 
 function dateIsToday(date: string) {

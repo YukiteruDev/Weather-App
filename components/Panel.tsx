@@ -18,7 +18,7 @@ interface PanelProps {
 }
 export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
-  const [tab, setTab] = useState<TabType>("hour");
+  const [tab, setTab] = useState<TabType>("day");
   const scrollRef = useHorizontalScroll();
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,19 +41,19 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           <div className={styles.forecastButtons}>
             <button
               className={`${styles.textButton} ${
-                tab === "hour" ? styles.activeButton : ""
-              }`}
-              onClick={() => setTab("hour")}
-            >
-              Hourly Forecast
-            </button>
-            <button
-              className={`${styles.textButton} ${
                 tab === "day" ? styles.activeButton : ""
               }`}
               onClick={() => setTab("day")}
             >
               Weekly Forecast
+            </button>
+            <button
+              className={`${styles.textButton} ${
+                tab === "hour" ? styles.activeButton : ""
+              }`}
+              onClick={() => setTab("hour")}
+            >
+              Hourly Forecast
             </button>
           </div>
           {tab === "day" ? (

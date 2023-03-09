@@ -1,5 +1,5 @@
+import { getDirection, kmToBeaufort, kmToWindForce } from "@/api/wind";
 import Image from "next/image";
-import Icon from "public/icons/fill/wind-beaufort-5.svg";
 import styles from "styles/Widget.module.css";
 
 type WindProps = {
@@ -7,6 +7,9 @@ type WindProps = {
   direction: number;
 };
 export default function Wind({ speed, direction }: WindProps) {
+  const windForce = kmToWindForce(speed);
+  const beaufort = kmToBeaufort(speed);
+  const Icon = require(`public/icons/fill/wind-beaufort-${beaufort}.svg`);
   return (
     <div className={styles.widget}>
       <h3 className={styles.title}>Wind Speed</h3>
@@ -16,7 +19,7 @@ export default function Wind({ speed, direction }: WindProps) {
           <p className={styles.infoText}>{speed}km/h</p>
         </div>
         <p className={`${styles.bottomText} ${styles.windDirection}`}>
-          Southwest, {direction}°
+          {getDirection(direction)}, {windForce}
         </p>
       </div>
     </div>

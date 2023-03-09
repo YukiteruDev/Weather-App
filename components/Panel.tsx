@@ -22,16 +22,21 @@ interface PanelProps {
     weathercode: number[];
   };
 }
-export default function Panel({ hourlyData }: PanelProps) {
-  const week = [1, 2, 3, 4, 5, 6, 7];
+export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("hour");
   const scrollRef = useHorizontalScroll();
-  function timeData(index: number) {
+  function getHourlyData(index: number) {
     return {
       time: hourlyData.time[index],
       temperature: hourlyData.temperature_2m[index],
       weatherCode: hourlyData.weathercode[index],
+    };
+  }
+  function getDailyData(index: number) {
+    return {
+      time: dailyData.time[index],
+      weatherCode: dailyData.weathercode[index],
     };
   }
   return (
@@ -65,14 +70,14 @@ export default function Panel({ hourlyData }: PanelProps) {
           </div>
           {tab === "day" ? (
             <div className={styles.days}>
-              {week.map(num => {
-                return <Day key={num} />;
+              {dailyData.time.map((time, index) => {
+                return <Day data={getDailyData(index)} key={time} />;
               })}
             </div>
           ) : (
             <div ref={scrollRef} className={styles.hours}>
               {hourlyData.time.map((time, index) => {
-                return <Hour data={timeData(index)} key={time} />;
+                return <Hour data={getHourlyData(index)} key={time} />;
               })}
             </div>
           )}

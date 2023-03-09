@@ -17,6 +17,10 @@ interface PanelProps {
     temperature_2m: number[];
     weathercode: number[];
   };
+  dailyData: {
+    time: string[];
+    weathercode: number[];
+  };
 }
 export default function Panel({ hourlyData }: PanelProps) {
   const week = [1, 2, 3, 4, 5, 6, 7];

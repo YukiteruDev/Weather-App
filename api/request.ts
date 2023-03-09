@@ -3,6 +3,7 @@ const baseUrl = "https://api.open-meteo.com/v1/forecast";
 type QueryType = {
   latitude: string;
   longitude: string;
+  timezone: string;
   hourly?: string;
   daily?: string;
   start_date?: string;
@@ -20,7 +21,8 @@ function getDateRange() {
 
 function getQueryString(hourly = "", daily = "") {
   const [latitude, longitude] = ["35.65", "139.84"];
-  const queryObject: QueryType = { latitude, longitude };
+  const timezone = "Asia/Tokyo";
+  const queryObject: QueryType = { latitude, longitude, timezone };
   if (hourly) {
     queryObject.hourly = hourly;
     [queryObject.start_date, queryObject.end_date] = getDateRange();
@@ -34,13 +36,12 @@ function getQueryString(hourly = "", daily = "") {
 
 async function getHourlyForecast() {
   const queryString = getQueryString("temperature_2m,weathercode");
-  console.log(queryString);
   const data = await sendRequest(queryString);
   return data;
 }
 
 async function getDailyForecast() {
-  const queryString = getQueryString("", "temperature_2m,weathercode");
+  const queryString = getQueryString("", "weathercode");
   const data = await sendRequest(queryString);
   return data;
 }

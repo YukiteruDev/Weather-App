@@ -61,9 +61,10 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
               {dailyData.time.map((time, index) => {
                 return (
                   <Day
+                    key={time}
                     data={dailyData}
                     index={index}
-                    key={time}
+                    isActive={activeIndex === index}
                     callback={(idx, weekDay) => handleDayClick(idx, weekDay)}
                   />
                 );

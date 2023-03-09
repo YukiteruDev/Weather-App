@@ -9,12 +9,16 @@
   cursor: pointer;
   position: relative;
   transition: top ease 1s;
+  --active-background: #f7fdff;
 }
 .container:hover {
-  background-color: #f0faff;
+  background-color: var(--active-background);
 }
 .container:hover {
   top: -0.1rem;
+}
+.active {
+  background-color: var(--active-background);
 }
 .date {
   color: var(--primary-text);

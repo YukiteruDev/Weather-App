@@ -3,21 +3,24 @@ import styles from "@/styles/Day.module.css";
 import Icon from "@/public/icons/fill/rain.svg";
 import { DailyData } from "@/types/temperature";
 import { dateIsToday, getDayOfWeek } from "@/api/date";
-import { MouseEventHandler } from "react";
 
 type DailyProps = {
   data: DailyData;
   index: number;
+  isActive: boolean;
   callback: CallbackInterface;
 };
 interface CallbackInterface {
   (index: number, weekDay: string): void;
 }
-export default function Day({ data, index, callback }: DailyProps) {
+export default function Day({ data, index, isActive, callback }: DailyProps) {
   const weekDay = getDayOfWeek(data.time[index]);
   const dayName = dateIsToday(data.time[index]) ? "Today" : weekDay;
   return (
-    <div className={styles.container} onClick={() => callback(index, dayName)}>
+    <div
+      className={`${styles.container} ${isActive ? styles.active : ""}`}
+      onClick={() => callback(index, dayName)}
+    >
       <div className={styles.date}>
         <p>{dayName}</p>
         <span>{data.time[index]}</span>

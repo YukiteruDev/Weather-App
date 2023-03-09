@@ -2,29 +2,19 @@ import styles from "@/styles/Header.module.css";
 import { Icon } from "@iconify/react";
 import { lato } from "@/api/fonts";
 import Image from "next/image";
-import HeaderIcon from "@/public/icons/fill/rain.svg";
 import Link from "next/link";
 import { CurrentWeather } from "@/types/temperature";
-import weatherCode from "@/api/weatherCode.json";
-
-// function getWeatherInfo(code: any) {
-//   const description = weatherCode[code].description;
-//   return { description };
-// }
+import { getWeatherInfo } from "@/api/weatherCodes";
+import { useEffect } from "react";
 
 type HeaderProps = {
   currentWeather: CurrentWeather;
 };
 export default function Header({ currentWeather }: HeaderProps) {
+  console.log("rendering header");
   const code = currentWeather.weatherCode;
-  console.log({ code });
-  let obj = {
-    "0": {
-      description: "Clear Sky",
-      icon: "clear",
-    },
-  };
-  // const weatherInfo = obj[code];
+  const weatherInfo = getWeatherInfo(code);
+  const weatherIcon = require(`public/icons/fill/${weatherInfo.icon}.svg`);
   return (
     <header className={styles.header}>
       <>
@@ -39,13 +29,13 @@ export default function Header({ currentWeather }: HeaderProps) {
             </button>
           </Link>
         </div>
-        <Image src={HeaderIcon} alt="header-icon" className={styles.icon} />
+        <Image src={weatherIcon} alt="header-icon" className={styles.icon} />
         <div className={styles.temperature}>
           <p className={lato.className}>
             {currentWeather.temperature}
             <i>°</i>
           </p>
-          <p className={styles.status}>{""}</p>
+          <p className={styles.status}>{weatherInfo.description}</p>
           <div className={styles.bottom}>
             <div className={styles.bottomInfo}>
               <Icon icon="ph:t-shirt-bold" />

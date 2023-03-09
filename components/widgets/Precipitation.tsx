@@ -2,7 +2,8 @@ import Image from "next/image";
 import Icon from "public/icons/fill/raindrop.svg";
 import styles from "styles/Widget.module.css";
 
-export default function Precipitation() {
+type PrecipitationProps = { probability: number };
+export default function Precipitation({ probability }: PrecipitationProps) {
   return (
     <div className={styles.widget}>
       <h3 className={styles.title}>Precipitation Probability</h3>

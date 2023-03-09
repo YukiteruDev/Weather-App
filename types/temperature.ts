@@ -19,6 +19,8 @@ type DailyData = {
   uv_index_max: number[];
   windspeed_10m_max: number[];
   winddirection_10m_dominant: number[];
+  precipitation_sum: number[];
+  precipitation_probability_max: number[];
 };
 type CurrentWeather = {
   weatherCode: number;

@@ -2,7 +2,8 @@ import Image from "next/image";
 import Icon from "public/icons/fill/raindrops.svg";
 import styles from "styles/Widget.module.css";
 
-export default function PrecipitationSum() {
+type PrecipitationSumProps = { sum: number };
+export default function PrecipitationSum({ sum }: PrecipitationSumProps) {
   return (
     <div className={styles.widget}>
       <h3 className={styles.title}>Total Precipitation</h3>

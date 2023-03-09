@@ -3,20 +3,22 @@ import SunriseIcon from "public/icons/fill/sunrise.svg";
 import SunsetIcon from "public/icons/fill/sunset.svg";
 import styles from "styles/Widget.module.css";
 
-type PropsType = {
-  isRise: boolean;
-};
-export default function Sunrise({ isRise }: PropsType) {
+type PropsType = { rise?: string; set?: string };
+export default function Sunrise({ rise, set }: PropsType) {
+  function getTime() {
+    const time = rise || set || "";
+    return time.slice(-5);
+  }
   return (
     <div className={styles.widget}>
-      <h3 className={styles.title}>{isRise ? "Sunrise" : "Sunset"}</h3>
+      <h3 className={styles.title}>{rise ? "Sunrise" : "Sunset"}</h3>
       <div className={`${styles.flexCenter} ${styles.flexColumn}`}>
         <Image
           className={styles.SunriseImage}
-          src={isRise ? SunriseIcon : SunsetIcon}
+          src={rise ? SunriseIcon : SunsetIcon}
           alt="sunrise"
         />
-        <p className={styles.infoText}>{isRise ? "6:47 AM" : "6:35 PM"}</p>
+        <p className={styles.infoText}>{getTime()}</p>
       </div>
     </div>
   );

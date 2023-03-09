@@ -20,6 +20,7 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("hour");
   const scrollRef = useHorizontalScroll();
+  const activeIndex = 0;
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
@@ -64,16 +65,27 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           )}
         </article>
         <article className={styles.detail}>
-          <h2>Weather Details</h2>
+          <h2>Daily Details</h2>
           <div className={styles.widgets}>
-            <Sunrise isRise={true} />
-            <Sunrise isRise={false} />
-            <Temperature highOrLow="high" />
-            <Temperature highOrLow="low" />
-            <Precipitation />
-            <PrecipitationSum />
-            <UVIndex level={3} />
-            <Wind />
+            <Sunrise rise={dailyData.sunrise[activeIndex]} />
+            <Sunrise set={dailyData.sunset[activeIndex]} />
+            <Temperature
+              maxTemperature={dailyData.temperature_2m_max[activeIndex]}
+              maxApparent={dailyData.apparent_temperature_max[activeIndex]}
+            />
+            <Temperature
+              minTemperature={dailyData.temperature_2m_min[activeIndex]}
+              minApparent={dailyData.apparent_temperature_min[activeIndex]}
+            />
+            <Precipitation
+              probability={dailyData.precipitation_probability_max[activeIndex]}
+            />
+            <PrecipitationSum sum={dailyData.precipitation_sum[activeIndex]} />
+            <UVIndex level={dailyData.uv_index_max[activeIndex]} />
+            <Wind
+              speed={dailyData.windspeed_10m_max[activeIndex]}
+              direction={dailyData.winddirection_10m_dominant[activeIndex]}
+            />
           </div>
         </article>
       </section>

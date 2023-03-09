@@ -19,4 +19,11 @@ function dateIsToday(date: string) {
   return today === dateOfWeek;
 }
 
-export { getDayOfWeek, dateIsToday };
+function getCurrentDateTime() {
+  const d = new Date();
+  const date = d.toISOString().slice(0, 10);
+  const time = d.toLocaleTimeString();
+  return `${date}T${time.slice(0, 2)}:00`;
+}
+
+export { getDayOfWeek, dateIsToday, getCurrentDateTime };

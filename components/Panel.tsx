@@ -11,6 +11,7 @@ import Wind from "./widgets/Wind";
 import { useState } from "react";
 import { useHorizontalScroll } from "@/api/scroll";
 import { DailyData, HourlyData } from "@/types/temperature";
+import { getCurrentDateTime } from "@/api/date";
 
 interface PanelProps {
   hourlyData: HourlyData;
@@ -73,7 +74,10 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           ) : (
             <div ref={scrollRef} className={styles.hours}>
               {hourlyData.time.map((time, index) => {
-                return <Hour data={hourlyData} index={index} key={time} />;
+                const currentDateTime = getCurrentDateTime();
+                if (time > currentDateTime) {
+                  return <Hour data={hourlyData} index={index} key={time} />;
+                }
               })}
             </div>
           )}

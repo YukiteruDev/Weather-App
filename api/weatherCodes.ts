@@ -13,12 +13,12 @@ const weatherCodes: WeatherCodes = {
     icon: "clear",
   },
   1: {
-    description: "Mainly Clear",
+    description: "Mostly Clear",
     icon: "clear",
   },
   2: {
     description: "Partly Cloudy",
-    icon: "partly-cloudy-day",
+    icon: "partly-cloudy",
   },
   3: {
     description: "Overcast",

@@ -11,7 +11,6 @@ type HeaderProps = {
   currentWeather: CurrentWeather;
 };
 export default function Header({ currentWeather }: HeaderProps) {
-  console.log("rendering header");
   const code = currentWeather.weatherCode;
   const weatherInfo = getWeatherInfo(code);
   const weatherIcon = require(`public/icons/fill/${weatherInfo.icon}.svg`);

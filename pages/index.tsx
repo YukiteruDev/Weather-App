@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Panel from "@/components/Panel";
 import { getDailyForecast, getHourlyForecast } from "@/api/request";
 import { CurrentWeather, DailyData, HourlyData } from "@/types/temperature";
+import { getCurrentDateTime } from "@/api/date";
 
 interface HomeProps {
   hourlyData: HourlyData;
@@ -32,11 +33,8 @@ export default function Home({
 }
 
 function getCurrentWeather(data: HourlyData) {
-  const currentHour = new Date().getHours();
-  const hours: string[] = data.time;
-  const currentIndex = hours.findIndex(
-    i => i.slice(-5, -3) === currentHour.toString()
-  );
+  const currentDateTime = getCurrentDateTime();
+  const currentIndex = data.time.findIndex(time => time === currentDateTime);
   const currentWeather = {
     weatherCode: data.weathercode[currentIndex],
     temperature: data.temperature_2m[currentIndex],

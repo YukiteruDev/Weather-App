@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
-import { getDailyForecast, getHourlyForecast } from "@/api/request";
+import { getDailyForecast, getHourlyForecast } from "@/api/weather";
 import { CurrentWeather, DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
 

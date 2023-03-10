@@ -34,7 +34,7 @@ function getQueryString(hourly = "", daily = "") {
   return queryString;
 }
 
-async function getHourlyForecast() {
+export async function getHourlyForecast() {
   const variables = [
     "temperature_2m",
     "relativehumidity_2m",
@@ -48,7 +48,7 @@ async function getHourlyForecast() {
   return data;
 }
 
-async function getDailyForecast() {
+export async function getDailyForecast() {
   const variables = [
     "weathercode",
     "temperature_2m_max",
@@ -73,5 +73,3 @@ async function sendRequest(queryString: string) {
   const res = await fetch(requestUrl);
   return res.json();
 }
-
-export { getHourlyForecast, getDailyForecast };

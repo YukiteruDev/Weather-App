@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@/styles/SearchBar.module.css";
 import { Icon } from "@iconify/react";
 import { getLocations } from "@/api/geocoding";
 import { CityInfo } from "@/types/location";
 import SearchBarLocations from "./SearchBarLocations";
+import useDebounce from "@/hooks/useDebounce";
 
 type SearchBarType = {
   isSettings: boolean;
@@ -11,12 +12,20 @@ type SearchBarType = {
 export default function SearchBar({ isSettings }: SearchBarType) {
   const [value, setValue] = useState("");
   const [locations, setLocations] = useState<CityInfo[]>([]);
-  async function handleInput(value: string) {
+  function handleInput(value: string) {
     setValue(value);
     if (!value) return;
-    const locations = await getLocations(value);
-    setLocations(locations || []);
   }
+
+  const debounced = useDebounce(value);
+  async function fetchLocations() {
+    const locationList = await getLocations(value);
+    setLocations(locationList || []);
+  }
+  useEffect(() => {
+    fetchLocations();
+  }, [debounced]);
+
   return (
     <div
       className={`${styles.container} ${

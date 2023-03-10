@@ -4,7 +4,7 @@ import { lato } from "@/api/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { CurrentWeather } from "@/types/temperature";
-import { getWeatherInfo } from "@/api/weatherCodes";
+import { getWeatherIcon, getWeatherInfo } from "@/api/weatherCodes";
 import { useEffect } from "react";
 
 type HeaderProps = {
@@ -13,7 +13,7 @@ type HeaderProps = {
 export default function Header({ currentWeather }: HeaderProps) {
   const code = currentWeather.weatherCode;
   const weatherInfo = getWeatherInfo(code);
-  const weatherIcon = require(`public/icons/fill/${weatherInfo.icon}.svg`);
+  const weatherIcon = getWeatherIcon(weatherInfo.icon);
   return (
     <header className={styles.header}>
       <>

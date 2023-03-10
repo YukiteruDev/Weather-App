@@ -12,6 +12,10 @@ export function getWeatherInfo(code: number) {
   return info;
 }
 
+export function getWeatherIcon(name: string) {
+  return require(`public/icons/fill/${name}.svg`);
+}
+
 type WeatherCodes = {
   [key: number]: { description: string; icon: string };
 };

@@ -1,6 +1,14 @@
 export function getWeatherInfo(code: number) {
   const info = weatherCodes[code];
-  const hasPeriod = code < 50 || code < 90;
+
+  const allowPeriod = code < 50 || code > 90;
+  const hour = new Date().getHours();
+  const isNight = hour > 18 || hour < 6;
+  const periodSuffix = isNight ? "-night" : "-day";
+  if (allowPeriod && !info.icon.includes(periodSuffix)) {
+    info.icon += periodSuffix;
+  }
+
   return info;
 }
 

@@ -1,0 +1,16 @@
+.list {
+  position: absolute;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  width: 20rem;
+  background-color: var(--primary-color);
+  border-radius: 0.6rem;
+  z-index: 9;
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+.listItem {
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
+}

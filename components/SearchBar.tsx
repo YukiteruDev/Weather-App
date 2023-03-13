@@ -42,7 +42,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
         placeholder="Search City..."
         className={styles.input}
       />
-      <SearchBarLocations locations={locations} />
+      {value && <SearchBarLocations locations={locations} />}
     </div>
   );
 }

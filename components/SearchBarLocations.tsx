@@ -5,7 +5,7 @@ type ParamsType = { locations: CityInfo[] };
 export default function SearchBarLocations({ locations }: ParamsType) {
   if (!locations.length)
     return (
-      <ul className={`${styles.list} ${styles.isEmpty}`}>
+      <ul className={styles.list}>
         <li className={styles.listItem}>No location found</li>
       </ul>
     );
@@ -14,7 +14,9 @@ export default function SearchBarLocations({ locations }: ParamsType) {
       <ul className={styles.list}>
         {locations.map(item => (
           <li key={item.id} className={styles.listItem}>
-            {item.name}, {item.country}
+            <a href="javascript:void(0)">
+              {item.name}, {item.country}
+            </a>
           </li>
         ))}
       </ul>

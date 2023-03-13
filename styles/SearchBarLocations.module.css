@@ -3,14 +3,22 @@
   margin-top: 0.5rem;
   padding: 1rem;
   width: 20rem;
+  width: 100%;
+  max-height: 20rem;
   background-color: var(--primary-color);
   border-radius: 0.6rem;
   z-index: 9;
-  max-height: 20rem;
   overflow-y: scroll;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.15);
 }
 .listItem {
   font-size: 1rem;
   line-height: 2rem;
+}
+.listItem a {
+  display: inline-block;
+  width: 100%;
   cursor: pointer;
+  color: var(--primary-text);
+  text-decoration: none;
 }

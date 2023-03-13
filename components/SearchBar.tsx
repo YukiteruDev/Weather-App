@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "@/styles/SearchBar.module.css";
 import { Icon } from "@iconify/react";
 import { getLocations } from "@/api/geocoding";
 import { CityInfo } from "@/types/location";
 import SearchBarLocations from "./SearchBarLocations";
 import useDebounce from "@/hooks/useDebounce";
+import { MyContext } from "@/api/context";
 
 type SearchBarType = {
   isSettings: boolean;
@@ -26,6 +27,12 @@ export default function SearchBar({ isSettings }: SearchBarType) {
     fetchLocations();
   }, [debounced]);
 
+  const { location, setLocation } = useContext(MyContext);
+  function changeLocation(city: CityInfo) {
+    setValue("");
+    setLocation(city);
+  }
+
   return (
     <div
       className={`${styles.container} ${
@@ -42,7 +49,12 @@ export default function SearchBar({ isSettings }: SearchBarType) {
         placeholder="Search City..."
         className={styles.input}
       />
-      {value && <SearchBarLocations locations={locations} />}
+      {value && (
+        <SearchBarLocations
+          locations={locations}
+          changeLocation={changeLocation}
+        />
+      )}
     </div>
   );
 }

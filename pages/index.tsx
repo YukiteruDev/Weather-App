@@ -5,6 +5,8 @@ import Panel from "@/components/Panel";
 import { getDailyForecast, getHourlyForecast } from "@/api/weather";
 import { CurrentWeather, DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
+import { useState } from "react";
+import { MyContext } from "@/api/context";
 
 interface HomeProps {
   hourlyData: HourlyData;
@@ -16,6 +18,7 @@ export default function Home({
   dailyData,
   currentWeather,
 }: HomeProps) {
+  const [location, setLocation] = useState({});
   return (
     <>
       <Head>
@@ -24,10 +27,12 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.main}>
-        <Header currentWeather={currentWeather} />
-        <Panel hourlyData={hourlyData} dailyData={dailyData} />
-      </div>
+      <MyContext.Provider value={{ location, setLocation }}>
+        <div className={styles.main}>
+          <Header currentWeather={currentWeather} />
+          <Panel hourlyData={hourlyData} dailyData={dailyData} />
+        </div>
+      </MyContext.Provider>
     </>
   );
 }

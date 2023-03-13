@@ -14,6 +14,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
   async function handleInput(value: string) {
     setValue(value);
     if (!value) return;
+
     const locations = await getLocations(value);
     setLocations(locations || []);
   }
@@ -33,7 +34,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
         placeholder="Search City..."
         className={styles.input}
       />
-      <SearchBarLocations locations={locations} />
+      {value && <SearchBarLocations locations={locations} />}
     </div>
   );
 }

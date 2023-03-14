@@ -2,10 +2,8 @@ import styles from "@/styles/Header.module.css";
 import { Icon } from "@iconify/react";
 import { lato } from "@/api/fonts";
 import Image from "next/image";
-import Link from "next/link";
 import { CurrentWeather } from "@/types/temperature";
 import { getWeatherIcon, getWeatherInfo } from "@/api/weatherCodes";
-import { useEffect } from "react";
 
 type HeaderProps = {
   currentWeather: CurrentWeather;
@@ -19,14 +17,12 @@ export default function Header({ currentWeather }: HeaderProps) {
       <>
         <div className={styles.top}>
           <p className={lato.className}>Tokyo, Japan</p>
-          <Link href="/settings">
-            <button className={styles.settingsButton}>
-              <Icon
-                icon="ant-design:setting-outlined"
-                className={styles.topIcon}
-              />
-            </button>
-          </Link>
+          <button className={styles.settingsButton}>
+            <Icon
+              icon="ant-design:setting-outlined"
+              className={styles.topIcon}
+            />
+          </button>
         </div>
         <Image src={weatherIcon} alt="header-icon" className={styles.icon} />
         <div className={styles.temperature}>

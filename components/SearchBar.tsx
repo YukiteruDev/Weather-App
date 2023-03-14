@@ -27,7 +27,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
     fetchLocations();
   }, [debounced]);
 
-  const { location, setLocation } = useContext(MyContext);
+  const { setLocation } = useContext(MyContext);
   function changeLocation(city: CityInfo) {
     setValue("");
     setLocation(city);

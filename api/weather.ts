@@ -1,3 +1,8 @@
+import { DailyData } from "@/types/temperature";
+import { HourlyData } from "@/types/temperature";
+import { CityInfo } from "@/types/location";
+import { daily, hourly } from "./variables";
+
 const baseUrl = "https://api.open-meteo.com/v1/forecast";
 
 type QueryType = {
@@ -19,53 +24,35 @@ function getDateRange() {
   return [startDate, endDate];
 }
 
-function getQueryString(hourly = "", daily = "") {
-  const [latitude, longitude] = ["35.65", "139.84"];
-  const timezone = "Asia/Tokyo";
+function getQueryString(city: CityInfo, type: "hour" | "day") {
+  const [latitude, longitude] = [
+    city.latitude.toString(),
+    city.longitude.toString(),
+  ];
+  const timezone = city.timezone;
   const queryObject: QueryType = { latitude, longitude, timezone };
-  if (hourly) {
+
+  if (type === "hour") {
     queryObject.hourly = hourly;
     [queryObject.start_date, queryObject.end_date] = getDateRange();
-  } else {
-    queryObject.daily = daily;
   }
+  queryObject.daily = daily;
+
   const params = new URLSearchParams(queryObject);
   const queryString = params.toString().replaceAll("%2C", ",");
   return queryString;
 }
 
-export async function getHourlyForecast() {
-  const variables = [
-    "temperature_2m",
-    "relativehumidity_2m",
-    "apparent_temperature",
-    "weathercode",
-    "visibility",
-    "windspeed_10m",
-  ];
-  const queryString = getQueryString(variables.join());
-  const data = await sendRequest(queryString);
-  return data;
-}
-
-export async function getDailyForecast() {
-  const variables = [
-    "weathercode",
-    "temperature_2m_max",
-    "temperature_2m_min",
-    "apparent_temperature_max",
-    "apparent_temperature_min",
-    "sunrise",
-    "sunset",
-    "uv_index_max",
-    "precipitation_sum",
-    "precipitation_probability_max",
-    "windspeed_10m_max",
-    "winddirection_10m_dominant",
-  ];
-  const queryString = getQueryString("", variables.join());
-  const data = await sendRequest(queryString);
-  return data;
+export async function getWeatherData(city: CityInfo) {
+  const hourlyQs = getQueryString(city, "hour");
+  const dailyQs = getQueryString(city, "day");
+  const [hourlyJson, dailyJson] = await Promise.all([
+    sendRequest(hourlyQs),
+    sendRequest(dailyQs),
+  ]);
+  const hourlyData: HourlyData = hourlyJson.hourly;
+  const dailyData: DailyData = dailyJson.daily;
+  return { hourlyData, dailyData };
 }
 
 async function sendRequest(queryString: string) {

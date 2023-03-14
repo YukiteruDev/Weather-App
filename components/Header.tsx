@@ -4,6 +4,8 @@ import { lato } from "@/api/fonts";
 import Image from "next/image";
 import { CurrentWeather } from "@/types/temperature";
 import { getWeatherIcon, getWeatherInfo } from "@/api/weatherCodes";
+import { useContext } from "react";
+import { MyContext } from "@/api/context";
 
 type HeaderProps = {
   currentWeather: CurrentWeather;
@@ -12,11 +14,15 @@ export default function Header({ currentWeather }: HeaderProps) {
   const code = currentWeather.weatherCode;
   const weatherInfo = getWeatherInfo(code);
   const weatherIcon = getWeatherIcon(weatherInfo.icon);
+
+  const { location } = useContext(MyContext);
   return (
     <header className={styles.header}>
       <>
         <div className={styles.top}>
-          <p className={lato.className}>Tokyo, Japan</p>
+          <p className={lato.className}>
+            {location.name}, {location.country}
+          </p>
           <button className={styles.settingsButton}>
             <Icon
               icon="ant-design:setting-outlined"

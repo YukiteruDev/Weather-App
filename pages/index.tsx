@@ -2,23 +2,36 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
-import { getDailyForecast, getHourlyForecast } from "@/api/weather";
+import { getWeatherData } from "@/api/weather";
 import { CurrentWeather, DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyContext } from "@/api/context";
+import { defaultCity } from "@/types/location";
 
 interface HomeProps {
-  hourlyData: HourlyData;
-  dailyData: DailyData;
-  currentWeather: CurrentWeather;
+  initialData: {
+    hourlyData: HourlyData;
+    dailyData: DailyData;
+  };
 }
-export default function Home({
-  hourlyData,
-  dailyData,
-  currentWeather,
-}: HomeProps) {
-  const [location, setLocation] = useState({});
+export default function Home({ initialData }: HomeProps) {
+  const [location, setLocation] = useState(defaultCity);
+  const [weatherData, setWeatherData] = useState(initialData);
+
+  const currentData = getCurrentWeather(initialData.hourlyData);
+  const [currentWeather, setCurrentWeather] = useState(currentData);
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedData = await getWeatherData(location);
+      const currentData = getCurrentWeather(fetchedData.hourlyData);
+      setWeatherData(fetchedData);
+      setCurrentWeather(currentData);
+    }
+
+    fetchData();
+  }, [location]);
   return (
     <>
       <Head>
@@ -30,7 +43,10 @@ export default function Home({
       <MyContext.Provider value={{ location, setLocation }}>
         <div className={styles.main}>
           <Header currentWeather={currentWeather} />
-          <Panel hourlyData={hourlyData} dailyData={dailyData} />
+          <Panel
+            hourlyData={weatherData.hourlyData}
+            dailyData={weatherData.dailyData}
+          />
         </div>
       </MyContext.Provider>
     </>
@@ -52,14 +68,6 @@ function getCurrentWeather(data: HourlyData) {
 }
 
 export async function getServerSideProps() {
-  const hourlyData = await getHourlyForecast();
-  const dailyData = await getDailyForecast();
-  const currentWeather = getCurrentWeather(hourlyData.hourly);
-  return {
-    props: {
-      hourlyData: hourlyData.hourly,
-      dailyData: dailyData.daily,
-      currentWeather,
-    },
-  };
+  const initialData = await getWeatherData(defaultCity);
+  return { props: { initialData } };
 }

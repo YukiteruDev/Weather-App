@@ -1,10 +1,11 @@
+import { CityInfo, defaultCity } from "./../types/location";
 import { createContext } from "react";
 
 interface MyContextType {
-  location: object;
-  setLocation: React.Dispatch<object>;
+  location: CityInfo;
+  setLocation: React.Dispatch<CityInfo>;
 }
 export const MyContext = createContext<MyContextType>({
-  location: {},
+  location: defaultCity,
   setLocation: () => {},
 });

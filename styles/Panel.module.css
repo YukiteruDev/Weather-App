@@ -24,17 +24,6 @@
   padding: 0;
   cursor: pointer;
 }
-.scale {
-  display: flex;
-  gap: 1rem;
-}
-.scale button {
-  font-size: 1rem;
-  color: var(--secondary-text);
-}
-.scale button:last-of-type {
-  color: var(--primary-text);
-}
 .forecast {
   margin-top: 2rem;
 }
@@ -86,7 +75,9 @@
 }
 @media only screen and (max-width: 1200px) {
   .top {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
   .widgets {
     grid-template-columns: repeat(2, minmax(9rem, 1fr));

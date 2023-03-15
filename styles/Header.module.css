@@ -6,50 +6,12 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.top > p {
+.location {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   color: var(--primary-text);
   font-size: 1.4rem;
-}
-.top button {
-  border: none;
-  padding: 0;
-  background: none;
-  cursor: pointer;
-}
-.units {
-  display: flex;
-  gap: 1rem;
-}
-.units > button {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  border: 0;
-  font-weight: 900;
-  font-size: 1.15rem;
-  cursor: pointer;
-}
-.units > button:first-child {
-  color: var(--primary-color);
-  background-color: var(--primary-text);
-}
-.units > button:last-child {
-  background-color: var(--secondary-color);
-}
-.units img {
-  height: 4rem;
-  width: 4rem;
-}
-.settingsButton {
-  display: none;
-}
-.topIcon {
-  font-size: 1.8rem;
 }
 .icon {
   width: 100%;
@@ -57,7 +19,7 @@
   height: auto;
   align-self: center;
 }
-.temperature {
+.weather {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,22 +27,23 @@
   padding-bottom: 1rem;
   color: var(--primary-text);
 }
-.temperature > p {
+.temperature {
   font-size: 7rem;
   display: flex;
 }
-.temperature > p > i {
+.temperature > i {
   align-self: start;
   margin-top: 0.3rem;
   font-style: normal;
   font-size: 4.5rem;
 }
-.temperature .status {
+.status {
   margin-top: 1rem;
   font-size: 1.2rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--secondary-color);
 }
+
 .bottom {
   margin-top: 2.5rem;
   display: grid;

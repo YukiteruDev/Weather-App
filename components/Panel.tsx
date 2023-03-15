@@ -12,6 +12,7 @@ import { useState } from "react";
 import { useHorizontalScroll } from "@/api/scroll";
 import { DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
+import Scale from "./Scale";
 
 interface PanelProps {
   hourlyData: HourlyData;
@@ -32,10 +33,7 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
     <main className={styles.panel}>
       <div className={styles.top}>
         <SearchBar />
-        <div className={styles.scale}>
-          <button className={styles.textButton}>Celsius</button>
-          <button className={styles.textButton}>Fahrenheit</button>
-        </div>
+        <Scale />
       </div>
       <section className={styles.content}>
         <article className={styles.forecast}>

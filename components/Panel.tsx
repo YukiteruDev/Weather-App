@@ -31,7 +31,7 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
   return (
     <main className={styles.panel}>
       <div className={styles.top}>
-        <SearchBar isSettings={false} />
+        <SearchBar />
         <div className={styles.scale}>
           <button className={styles.textButton}>Celsius</button>
           <button className={styles.textButton}>Fahrenheit</button>

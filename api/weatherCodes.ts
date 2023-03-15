@@ -1,7 +1,7 @@
 export function getWeatherInfo(code: number) {
   const info = weatherCodes[code];
 
-  const allowPeriod = code < 50 || code > 90;
+  const allowPeriod = code < 50 || code === 95;
   const hour = new Date().getHours();
   const isNight = hour > 18 || hour < 6;
   const periodSuffix = isNight ? "-night" : "-day";

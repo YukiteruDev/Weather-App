@@ -23,12 +23,6 @@ export default function Header({ currentWeather }: HeaderProps) {
           <p className={lato.className}>
             {location.name}, {location.country}
           </p>
-          <button className={styles.settingsButton}>
-            <Icon
-              icon="ant-design:setting-outlined"
-              className={styles.topIcon}
-            />
-          </button>
         </div>
         <Image src={weatherIcon} alt="header-icon" className={styles.icon} />
         <div className={styles.temperature}>

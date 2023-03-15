@@ -10,11 +10,6 @@
   display: flex;
   justify-content: space-between;
 }
-@media only screen and (max-width: 1000px) {
-  .top {
-    flex-direction: column;
-  }
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -91,7 +86,7 @@
 }
 @media only screen and (max-width: 1200px) {
   .top {
-    display: none;
+    flex-direction: column;
   }
   .widgets {
     grid-template-columns: repeat(2, minmax(9rem, 1fr));

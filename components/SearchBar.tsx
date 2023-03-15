@@ -7,10 +7,7 @@ import SearchBarLocations from "./SearchBarLocations";
 import useDebounce from "@/hooks/useDebounce";
 import { MyContext } from "@/api/context";
 
-type SearchBarType = {
-  isSettings: boolean;
-};
-export default function SearchBar({ isSettings }: SearchBarType) {
+export default function SearchBar() {
   const [value, setValue] = useState("");
   const [locations, setLocations] = useState<CityInfo[]>([]);
   function handleInput(value: string) {
@@ -34,11 +31,7 @@ export default function SearchBar({ isSettings }: SearchBarType) {
   }
 
   return (
-    <div
-      className={`${styles.container} ${
-        isSettings ? styles.settingsSearch : ""
-      }`}
-    >
+    <div className={styles.container}>
       <Icon icon="simple-line-icons:magnifier" />
       <button className={styles.locate}>
         <Icon icon="lucide:locate-fixed" />

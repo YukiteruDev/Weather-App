@@ -1,7 +1,7 @@
-import { CityInfo } from "@/types/location";
+import { Location } from "@/types/location";
 import styles from "styles/SearchBarLocations.module.css";
 
-type ParamsType = { locations: CityInfo[]; changeLocation: Function };
+type ParamsType = { locations: Location[]; changeLocation: Function };
 export default function SearchBarLocations({
   locations,
   changeLocation,
@@ -16,9 +16,9 @@ export default function SearchBarLocations({
     return (
       <ul className={styles.list}>
         {locations.map(item => (
-          <li key={item.id} className={styles.listItem}>
+          <li key={item.place_id} className={styles.listItem}>
             <a href="javascript:void(0)" onClick={() => changeLocation(item)}>
-              {item.name}, {item.country}
+              {item.display_name}
             </a>
           </li>
         ))}

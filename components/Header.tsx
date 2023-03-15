@@ -19,7 +19,7 @@ export default function Header({ currentWeather }: HeaderProps) {
   return (
     <header className={styles.header}>
       <p className={`${lato.className} ${styles.location}`}>
-        {location.name}, {location.country}
+        {location.display_name}
       </p>
       <Image src={weatherIcon} alt="header-icon" className={styles.icon} />
       <div className={styles.weather}>

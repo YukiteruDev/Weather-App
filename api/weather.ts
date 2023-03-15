@@ -1,7 +1,8 @@
 import { DailyData, ScaleType } from "@/types/temperature";
 import { HourlyData } from "@/types/temperature";
-import { CityInfo } from "@/types/location";
+import { Location } from "@/types/location";
 import { daily, hourly } from "./variables";
+import { getUserTimezone } from "./geocoding";
 
 const baseUrl = "https://api.open-meteo.com/v1/forecast";
 
@@ -26,15 +27,12 @@ function getDateRange() {
 }
 
 function getQueryString(
-  city: CityInfo,
+  location: Location,
   scale: ScaleType,
   type: "hour" | "day"
 ) {
-  const [latitude, longitude] = [
-    city.latitude.toString(),
-    city.longitude.toString(),
-  ];
-  const timezone = city.timezone;
+  const [latitude, longitude] = [location.lat, location.lon];
+  const timezone = getUserTimezone();
   const queryObject: QueryType = {
     latitude,
     longitude,
@@ -53,9 +51,9 @@ function getQueryString(
   return queryString;
 }
 
-export async function getWeatherData(city: CityInfo, scale: ScaleType) {
-  const hourlyQs = getQueryString(city, scale, "hour");
-  const dailyQs = getQueryString(city, scale, "day");
+export async function getWeatherData(location: Location, scale: ScaleType) {
+  const hourlyQs = getQueryString(location, scale, "hour");
+  const dailyQs = getQueryString(location, scale, "day");
   const [hourlyJson, dailyJson] = await Promise.all([
     sendRequest(hourlyQs),
     sendRequest(dailyQs),

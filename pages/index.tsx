@@ -7,7 +7,7 @@ import { DailyData, HourlyData, ScaleType } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
 import { useEffect, useRef, useState } from "react";
 import { MyContext } from "@/api/context";
-import { CityInfo, defaultCity } from "@/types/location";
+import { Location, defaultLocation } from "@/types/location";
 import { parseCookies, setCookie } from "nookies";
 import { NextPageContext } from "next";
 
@@ -16,7 +16,7 @@ interface HomeProps {
     hourlyData: HourlyData;
     dailyData: DailyData;
   };
-  initialLocation: CityInfo;
+  initialLocation: Location;
   initialScale: ScaleType;
 }
 export default function Home({
@@ -30,15 +30,15 @@ export default function Home({
   const currentData = getCurrentWeather(initialData.hourlyData);
   const [currentWeather, setCurrentWeather] = useState(currentData);
 
-  const locationRef = useRef(location.id);
+  const locationRef = useRef(location.place_id);
   useEffect(() => {
     const prevLocationId = locationRef.current;
-    if (prevLocationId === location.id) return;
+    if (prevLocationId === location.place_id) return;
 
     const strLocation = JSON.stringify(location);
     setCookie(null, "location", strLocation);
     fetchData();
-    locationRef.current = location.id;
+    locationRef.current = location.place_id;
   }, [location]);
 
   const [scale, setScale] = useState<ScaleType>(initialScale);
@@ -98,7 +98,7 @@ export async function getServerSideProps(
 ) {
   const cookies = parseCookies(context);
 
-  let initialLocation = defaultCity;
+  let initialLocation = defaultLocation;
   const storedLocation = cookies.location;
   if (storedLocation) initialLocation = JSON.parse(storedLocation);
 

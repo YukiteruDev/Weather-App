@@ -1,4 +1,4 @@
-type HourlyData = {
+export type HourlyData = {
   time: string[];
   temperature_2m: number[];
   weathercode: number[];
@@ -7,7 +7,8 @@ type HourlyData = {
   windspeed_10m: number[];
   relativehumidity_2m: number[];
 };
-type DailyData = {
+
+export type DailyData = {
   time: string[];
   weathercode: number[];
   temperature_2m_max: number[];
@@ -22,7 +23,8 @@ type DailyData = {
   precipitation_sum: number[];
   precipitation_probability_max: number[];
 };
-type CurrentWeather = {
+
+export type CurrentWeather = {
   weatherCode: number;
   temperature: number;
   apparentTemperature: number;
@@ -31,4 +33,4 @@ type CurrentWeather = {
   visibility: number;
 };
 
-export type { HourlyData, DailyData, CurrentWeather };
+export type ScaleType = "celsius" | "fahrenheit";

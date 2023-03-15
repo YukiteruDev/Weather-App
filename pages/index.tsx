@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Panel from "@/components/Panel";
 import { getWeatherData } from "@/api/weather";
-import { DailyData, HourlyData } from "@/types/temperature";
+import { DailyData, HourlyData, ScaleType } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
 import { useEffect, useRef, useState } from "react";
 import { MyContext } from "@/api/context";
@@ -17,8 +17,13 @@ interface HomeProps {
     dailyData: DailyData;
   };
   initialLocation: CityInfo;
+  initialScale: ScaleType;
 }
-export default function Home({ initialData, initialLocation }: HomeProps) {
+export default function Home({
+  initialData,
+  initialLocation,
+  initialScale,
+}: HomeProps) {
   const [location, setLocation] = useState(initialLocation);
   const [weatherData, setWeatherData] = useState(initialData);
 
@@ -32,16 +37,27 @@ export default function Home({ initialData, initialLocation }: HomeProps) {
 
     const strLocation = JSON.stringify(location);
     setCookie(null, "location", strLocation);
-    async function fetchData() {
-      const fetchedData = await getWeatherData(location);
-      const currentData = getCurrentWeather(fetchedData.hourlyData);
-      setWeatherData(fetchedData);
-      setCurrentWeather(currentData);
-    }
     fetchData();
-
     locationRef.current = location.id;
   }, [location]);
+
+  const [scale, setScale] = useState<ScaleType>(initialScale);
+  const scaleRef = useRef(scale);
+  useEffect(() => {
+    const prevScale = scaleRef.current;
+    if (prevScale === scale) return;
+
+    setCookie(null, "scale", scale);
+    fetchData();
+    scaleRef.current = scale;
+  }, [scale]);
+
+  async function fetchData() {
+    const fetchedData = await getWeatherData(location, scale);
+    const currentData = getCurrentWeather(fetchedData.hourlyData);
+    setWeatherData(fetchedData);
+    setCurrentWeather(currentData);
+  }
   return (
     <>
       <Head>
@@ -50,7 +66,7 @@ export default function Home({ initialData, initialLocation }: HomeProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MyContext.Provider value={{ location, setLocation }}>
+      <MyContext.Provider value={{ location, setLocation, scale, setScale }}>
         <div className={styles.main}>
           <Header currentWeather={currentWeather} />
           <Panel
@@ -80,10 +96,16 @@ function getCurrentWeather(data: HourlyData) {
 export async function getServerSideProps(
   context: Pick<NextPageContext, "req">
 ) {
-  let initialLocation = defaultCity;
   const cookies = parseCookies(context);
+
+  let initialLocation = defaultCity;
   const storedLocation = cookies.location;
   if (storedLocation) initialLocation = JSON.parse(storedLocation);
-  const initialData = await getWeatherData(initialLocation);
-  return { props: { initialData, initialLocation } };
+
+  let initialScale: ScaleType = "celsius";
+  const storedScale = cookies.scale as ScaleType;
+  if (storedScale) initialScale = storedScale;
+
+  const initialData = await getWeatherData(initialLocation, initialScale);
+  return { props: { initialData, initialLocation, initialScale } };
 }

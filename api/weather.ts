@@ -1,4 +1,4 @@
-import { DailyData } from "@/types/temperature";
+import { DailyData, ScaleType } from "@/types/temperature";
 import { HourlyData } from "@/types/temperature";
 import { CityInfo } from "@/types/location";
 import { daily, hourly } from "./variables";
@@ -13,6 +13,7 @@ type QueryType = {
   daily?: string;
   start_date?: string;
   end_date?: string;
+  temperature_unit: string;
 };
 
 function getDateRange() {
@@ -24,13 +25,22 @@ function getDateRange() {
   return [startDate, endDate];
 }
 
-function getQueryString(city: CityInfo, type: "hour" | "day") {
+function getQueryString(
+  city: CityInfo,
+  scale: ScaleType,
+  type: "hour" | "day"
+) {
   const [latitude, longitude] = [
     city.latitude.toString(),
     city.longitude.toString(),
   ];
   const timezone = city.timezone;
-  const queryObject: QueryType = { latitude, longitude, timezone };
+  const queryObject: QueryType = {
+    latitude,
+    longitude,
+    timezone,
+    temperature_unit: scale,
+  };
 
   if (type === "hour") {
     queryObject.hourly = hourly;
@@ -43,9 +53,9 @@ function getQueryString(city: CityInfo, type: "hour" | "day") {
   return queryString;
 }
 
-export async function getWeatherData(city: CityInfo) {
-  const hourlyQs = getQueryString(city, "hour");
-  const dailyQs = getQueryString(city, "day");
+export async function getWeatherData(city: CityInfo, scale: ScaleType) {
+  const hourlyQs = getQueryString(city, scale, "hour");
+  const dailyQs = getQueryString(city, scale, "day");
   const [hourlyJson, dailyJson] = await Promise.all([
     sendRequest(hourlyQs),
     sendRequest(dailyQs),

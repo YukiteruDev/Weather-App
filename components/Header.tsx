@@ -7,9 +7,7 @@ import { getWeatherIcon, getWeatherInfo } from "@/api/weatherCodes";
 import { useContext } from "react";
 import { MyContext } from "@/api/context";
 
-type HeaderProps = {
-  currentWeather: CurrentWeather;
-};
+type HeaderProps = { currentWeather: CurrentWeather };
 export default function Header({ currentWeather }: HeaderProps) {
   const code = currentWeather.weatherCode;
   const weatherInfo = getWeatherInfo(code);

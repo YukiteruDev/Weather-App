@@ -10,6 +10,7 @@ import { MyContext } from "@/api/context";
 import { Location, defaultLocation } from "@/types/location";
 import { parseCookies, setCookie } from "nookies";
 import { NextPageContext } from "next";
+import { reverseGeocoding } from "@/api/geocoding";
 
 interface HomeProps {
   initialData: {
@@ -58,6 +59,21 @@ export default function Home({
     setWeatherData(fetchedData);
     setCurrentWeather(currentData);
   }
+
+  async function locate() {
+    navigator.geolocation.getCurrentPosition(
+      loc => getPosition(loc.coords),
+      error => {
+        console.error(error);
+        alert(error.message);
+      }
+    );
+  }
+  type CoordsType = { latitude: number; longitude: number };
+  async function getPosition(coords: CoordsType) {
+    const location = await reverseGeocoding(coords.latitude, coords.longitude);
+    setLocation(location);
+  }
   return (
     <>
       <Head>
@@ -66,7 +82,9 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MyContext.Provider value={{ location, setLocation, scale, setScale }}>
+      <MyContext.Provider
+        value={{ location, setLocation, scale, setScale, locate }}
+      >
         <div className={styles.main}>
           <Header currentWeather={currentWeather} />
           <Panel

@@ -7,10 +7,12 @@ interface MyContextType {
   setLocation: React.Dispatch<Location>;
   scale: ScaleType;
   setScale: React.Dispatch<ScaleType>;
+  locate: Function;
 }
 export const MyContext = createContext<MyContextType>({
   location: defaultLocation,
   setLocation: () => {},
   scale: "celsius",
   setScale: () => {},
+  locate: () => {},
 });

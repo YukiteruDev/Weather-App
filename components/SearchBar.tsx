@@ -24,31 +24,16 @@ export default function SearchBar() {
     fetchLocations();
   }, [debounced]);
 
-  const { setLocation } = useContext(MyContext);
+  const { setLocation, locate } = useContext(MyContext);
   function changeLocation(location: Location) {
     setValue("");
     setLocation(location);
   }
 
-  type CoordsType = { latitude: number; longitude: number };
-  async function handleLocate() {
-    navigator.geolocation.getCurrentPosition(
-      loc => getPosition(loc.coords),
-      error => {
-        console.error(error);
-        alert(error.message);
-      }
-    );
-  }
-  async function getPosition(coords: CoordsType) {
-    const position = await reverseGeocoding(coords.latitude, coords.longitude);
-    console.log(position);
-  }
-
   return (
     <div className={styles.container}>
       <Icon icon="simple-line-icons:magnifier" />
-      <button className={styles.locate} onClick={() => handleLocate()}>
+      <button className={styles.locate} onClick={() => locate()}>
         <Icon icon="lucide:locate-fixed" />
       </button>
       <input

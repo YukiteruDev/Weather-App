@@ -27,3 +27,17 @@ export const defaultCity: CityInfo = {
   country: "Japan",
   admin1: "Tokyo",
 };
+
+export type LocationType = {
+  place_id: number;
+  lat: string;
+  lon: string;
+  display_name: string;
+  address: {
+    city: string;
+    district: string;
+    state: string;
+    country: string;
+    country_code: string;
+  };
+};

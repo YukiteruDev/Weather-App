@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Warmer from "public/icons/fill/thermometer-warmer.svg";
-import Colder from "public/icons/fill/thermometer-colder.svg";
 import styles from "styles/Widget.module.css";
+import { getWeatherIcon } from "@/api/weatherCodes";
 
 type PropsType = {
   maxTemperature?: number;
@@ -15,6 +14,8 @@ export default function Temperature({
   maxApparent,
   minApparent,
 }: PropsType) {
+  const type = maxTemperature ? "warmer" : "colder";
+  const weatherIcon = getWeatherIcon(`thermometer-${type}`);
   return (
     <div className={styles.widget}>
       <h3 className={styles.title}>
@@ -26,7 +27,7 @@ export default function Temperature({
         <div className={`${styles.flexCenter} ${styles.noWrap}`}>
           <Image
             className={styles.temperatureImage}
-            src={maxTemperature ? Warmer : Colder}
+            src={weatherIcon}
             alt="warmer"
           />
           <p className={styles.infoText}>{maxTemperature || minTemperature}°</p>

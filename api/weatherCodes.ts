@@ -13,7 +13,7 @@ export function getWeatherInfo(code: number) {
 }
 
 export function getWeatherIcon(name: string) {
-  return require(`public/icons/fill/${name}.svg`);
+  return require(`public/icons/${name}.svg`);
 }
 
 type WeatherCodes = {

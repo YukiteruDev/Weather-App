@@ -8,8 +8,7 @@ import Precipitation from "./widgets/Precipitation";
 import PrecipitationSum from "./widgets/PrecipitationSum";
 import UVIndex from "./widgets/UVIndex";
 import Wind from "./widgets/Wind";
-import { useState } from "react";
-import { useHorizontalScroll } from "@/api/scroll";
+import { useEffect, useRef, useState } from "react";
 import { DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
 import Scale from "./Scale";
@@ -21,7 +20,6 @@ interface PanelProps {
 export default function Panel({ hourlyData, dailyData }: PanelProps) {
   type TabType = "hour" | "day";
   const [tab, setTab] = useState<TabType>("day");
-  const scrollRef = useHorizontalScroll();
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [weekDay, setWeekDay] = useState("Today");
@@ -29,6 +27,29 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
     setActiveIndex(index);
     setWeekDay(weekDay);
   }
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      const onScroll = (e: WheelEvent) => {
+        console.log({
+          deltaY: e.deltaY,
+          left: el.scrollLeft,
+          width: el.clientWidth,
+        });
+        const isLeft = e.deltaY === 100;
+        let offset = el.scrollLeft + el.clientWidth - 300;
+        if (!isLeft) offset = el.scrollLeft - el.clientWidth + 300;
+        el.scrollTo({
+          left: offset + e.deltaY,
+          behavior: "smooth",
+        });
+      };
+      el.addEventListener("wheel", onScroll);
+      return () => el.removeEventListener("wheel", onScroll);
+    }
+  }, [tab]);
   return (
     <main className={styles.panel}>
       <div className={styles.top}>

@@ -33,16 +33,8 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
     const el = scrollRef.current;
     if (el) {
       const onScroll = (e: WheelEvent) => {
-        console.log({
-          deltaY: e.deltaY,
-          left: el.scrollLeft,
-          width: el.clientWidth,
-        });
-        const isLeft = e.deltaY === 100;
-        let offset = el.scrollLeft + el.clientWidth - 300;
-        if (!isLeft) offset = el.scrollLeft - el.clientWidth + 300;
         el.scrollTo({
-          left: offset + e.deltaY,
+          left: el.scrollLeft + e.deltaY,
           behavior: "smooth",
         });
       };

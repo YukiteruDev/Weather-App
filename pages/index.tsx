@@ -26,6 +26,7 @@ export default function Home({
   initialLocation,
   initialScale,
 }: HomeProps) {
+  const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState(initialLocation);
   const [weatherData, setWeatherData] = useState(initialData);
 
@@ -55,10 +56,15 @@ export default function Home({
   }, [scale]);
 
   async function fetchData() {
-    const fetchedData = await getWeatherData(location, scale);
-    const currentData = getCurrentWeather(fetchedData.hourlyData);
-    setWeatherData(fetchedData);
-    setCurrentWeather(currentData);
+    setIsLoading(true);
+    try {
+      const fetchedData = await getWeatherData(location, scale);
+      const currentData = getCurrentWeather(fetchedData.hourlyData);
+      setWeatherData(fetchedData);
+      setCurrentWeather(currentData);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   async function locate() {
@@ -75,6 +81,7 @@ export default function Home({
     const location = await reverseGeocoding(coords.latitude, coords.longitude);
     setLocation(location);
   }
+
   return (
     <>
       <Head>
@@ -93,7 +100,7 @@ export default function Home({
             dailyData={weatherData.dailyData}
           />
         </div>
-        <Loading />
+        {isLoading && <Loading />}
       </MyContext.Provider>
     </>
   );

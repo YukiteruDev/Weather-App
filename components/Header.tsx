@@ -30,7 +30,7 @@ export default function Header({ currentWeather }: HeaderProps) {
           <div className={styles.bottomInfo}>
             <Icon icon="ph:t-shirt-bold" />
             <div>
-              <span>Feel like</span>
+              <span>Feels like</span>
               <p>{currentWeather.apparentTemperature}°</p>
             </div>
           </div>

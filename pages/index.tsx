@@ -11,6 +11,7 @@ import { Location, defaultLocation } from "@/types/location";
 import { parseCookies, setCookie } from "nookies";
 import { NextPageContext } from "next";
 import { reverseGeocoding } from "@/api/geocoding";
+import Loading from "@/components/Loading";
 
 interface HomeProps {
   initialData: {
@@ -92,6 +93,7 @@ export default function Home({
             dailyData={weatherData.dailyData}
           />
         </div>
+        <Loading />
       </MyContext.Provider>
     </>
   );

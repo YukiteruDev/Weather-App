@@ -1,0 +1,31 @@
+.loadingMask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 10;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  right: calc(50% - 2rem);
+  width: 4rem;
+  height: 4rem;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

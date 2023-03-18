@@ -94,7 +94,7 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
           )}
         </article>
         <article className={styles.detail}>
-          <h2>{weekDay}'s Details</h2>
+          <h2>Details for {weekDay}</h2>
           <div className={styles.widgets}>
             <Sunrise rise={dailyData.sunrise[activeIndex]} />
             <Sunrise set={dailyData.sunset[activeIndex]} />

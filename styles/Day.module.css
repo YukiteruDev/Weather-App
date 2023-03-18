@@ -9,6 +9,8 @@
   cursor: pointer;
   position: relative;
   transition: top ease 1s;
+  flex-grow: 1;
+  min-width: 8rem;
   --active-background: #f7fdff;
 }
 .container:hover {

@@ -20,10 +20,10 @@ function dateIsToday(date: string) {
 }
 
 function getCurrentDateTime() {
-  const d = new Date();
-  const date = d.toISOString().slice(0, 10);
-  const time = d.toLocaleTimeString();
-  return `${date}T${time.slice(0, 2)}:00`;
+  const date = new Date();
+  const isoDateTime = date.toISOString();
+  const formattedDateTime = isoDateTime.slice(0, 14) + "00";
+  return formattedDateTime;
 }
 
 export { getDayOfWeek, dateIsToday, getCurrentDateTime };

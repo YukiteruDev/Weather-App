@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { DailyData, HourlyData } from "@/types/temperature";
 import { getCurrentDateTime } from "@/api/date";
 import Scale from "./Scale";
+import { Icon } from "@iconify/react";
 
 interface PanelProps {
   hourlyData: HourlyData;
@@ -46,7 +47,12 @@ export default function Panel({ hourlyData, dailyData }: PanelProps) {
     <main className={styles.panel}>
       <div className={styles.top}>
         <SearchBar />
-        <Scale />
+        <div className={styles.topRight}>
+          <Scale />
+          <a href="https://github.com/Yukiteno/Weather-App" target="_blank">
+            <Icon icon="mdi:github" className={styles.github} />
+          </a>
+        </div>
       </div>
       <section className={styles.content}>
         <article className={styles.forecast}>

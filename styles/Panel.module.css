@@ -10,6 +10,16 @@
   display: flex;
   justify-content: space-between;
 }
+.topRight {
+  display: flex;
+}
+.github {
+  margin-left: 1rem;
+  width: 2rem;
+  height: 100%;
+  display: inline-block;
+  color: var(--primary-text);
+}
 .content {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,7 @@
 .container {
   background-color: var(--primary-color);
   padding: 1rem;
+  border: none;
   border-radius: 1.1rem;
   display: flex;
   flex-direction: column;

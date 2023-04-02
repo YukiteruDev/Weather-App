@@ -27,7 +27,7 @@ export default function Day({ data, index, isActive, callback }: DailyProps) {
     return formattedDate;
   }
   return (
-    <div
+    <button
       className={`${styles.container} ${isActive ? styles.active : ""}`}
       onClick={() => callback(index, dayName)}
     >
@@ -40,6 +40,6 @@ export default function Day({ data, index, isActive, callback }: DailyProps) {
         <span>{data.temperature_2m_max[index]}°</span>
         <span>{data.temperature_2m_min[index]}°</span>
       </div>
-    </div>
+    </button>
   );
 }

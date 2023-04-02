@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 const weekDays = [
   "Sunday",
   "Monday",
@@ -20,10 +21,8 @@ function dateIsToday(date: string) {
 }
 
 function getCurrentDateTime() {
-  const date = new Date();
-  const isoDateTime = date.toISOString();
-  const formattedDateTime = isoDateTime.slice(0, 14) + "00";
-  return formattedDateTime;
+  const now = dayjs();
+  return now.format("YYYY-MM-DDTHH:00"); // get the exact time to match the API
 }
 
 export { getDayOfWeek, dateIsToday, getCurrentDateTime };

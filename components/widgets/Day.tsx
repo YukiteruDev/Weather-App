@@ -3,6 +3,7 @@ import styles from "@/styles/Day.module.css";
 import { DailyData } from "@/types/temperature";
 import { dateIsToday, getDayOfWeek } from "@/api/date";
 import { getWeatherIcon, getWeatherInfo } from "@/api/weatherCodes";
+import dayjs from "dayjs";
 
 type DailyProps = {
   data: DailyData;
@@ -18,6 +19,13 @@ export default function Day({ data, index, isActive, callback }: DailyProps) {
   const dayName = dateIsToday(data.time[index]) ? "Today" : weekDay;
   const weatherInfo = getWeatherInfo(data.weathercode[index]);
   const weatherIcon = getWeatherIcon(weatherInfo.icon);
+
+  function getDate(date: string) {
+    const advancedFormat = require("dayjs/plugin/advancedFormat");
+    dayjs.extend(advancedFormat); // make dayjs support more format
+    const formattedDate = dayjs(date).format("MMMM Do");
+    return formattedDate;
+  }
   return (
     <div
       className={`${styles.container} ${isActive ? styles.active : ""}`}
@@ -25,7 +33,7 @@ export default function Day({ data, index, isActive, callback }: DailyProps) {
     >
       <div className={styles.date}>
         <p>{dayName}</p>
-        <span>{data.time[index]}</span>
+        <span>{getDate(data.time[index])}</span>
       </div>
       <Image src={weatherIcon} alt="icon" className={styles.icon} />
       <div className={styles.weather}>

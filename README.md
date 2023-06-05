@@ -2,7 +2,7 @@
 
 A Weather Web Application Available All Around The World.
 
-This app is deployed on Vercel: https://weather-app-yukiteno.vercel.app/
+This app is deployed on Vercel: https://weather-app-laurence.vercel.app/
 
 ## APIs Used
 

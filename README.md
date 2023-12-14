@@ -1,6 +1,6 @@
 # A weather app.
 
-A Weather Web Application Available All Around The World.
+A Weather Web App.
 
 This app is deployed on Vercel: https://weather-app-laurence.vercel.app/
 
